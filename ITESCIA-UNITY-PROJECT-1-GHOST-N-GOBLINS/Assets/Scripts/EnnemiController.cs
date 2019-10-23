@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class EnnemiController : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-    public GameObject Player{get{return player;}}
+    [SerializeField] Transform player;
+    public Transform Player {get{return player;}}
     private new Rigidbody rigidbody;
     private Animator animator;
 
-    [SerializeField] float walkingSpeed;
+    [SerializeField] float lifePoint;
+    public float LifePoint { get { return lifePoint; } }
 
     void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
@@ -30,7 +31,22 @@ public class EnnemiController : MonoBehaviour
         
     }
 
-    public void MoveTowardsPosition(Vector3 targetPosition)
+    public void TakeDamages(int damages)
+    {
+        if (damages <= 0)
+            return;
+        lifePoint -= damages;
+
+        if (lifePoint <= 0)
+            Dies();
+    }
+
+    private void Dies()
+    {
+        animator.SetTrigger("Dies");
+    }
+
+    /*public void MoveTowardsPosition(Vector3 targetPosition)
     {
         Vector3 direction = (Vector3)(targetPosition - rigidbody.position).normalized;
         rigidbody.MovePosition(rigidbody.position + direction * walkingSpeed * Time.fixedDeltaTime);
@@ -40,5 +56,6 @@ public class EnnemiController : MonoBehaviour
     {
         Vector3 direction = (Vector3)(pointToLookAt - rigidbody.position).normalized;
         rigidbody.MoveRotation(Quaternion.LookRotation(direction));
-    }
+    }*/
+
 }
