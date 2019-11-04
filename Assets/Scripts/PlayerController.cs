@@ -29,7 +29,16 @@ public class PlayerController : MonoBehaviour
         return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Space) && IsGrounded())
+        {
+            m_Rigidbody.AddForce(new Vector3(0, m_GravityForce, 0));
 
+        }
+
+    }
+    
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -38,13 +47,11 @@ public class PlayerController : MonoBehaviour
         float hInput = Input.GetAxis("Horizontal");
 
         m_Rigidbody.MovePosition(m_Rigidbody.position + m_Transform.forward * m_TranslationSpeed * Time.fixedDeltaTime * hInput);
-        if (Input.GetKeyUp(KeyCode.Space)&& IsGrounded())
+        if (!IsGrounded())
         {
-            m_Rigidbody.AddForce(new Vector3(0, 500, 0));
-            m_Rigidbody.mass = 500 ;
+            m_Rigidbody.AddForce(Physics.gravity * 2*(m_Rigidbody.mass * m_Rigidbody.mass));
         }
-        m_Rigidbody.mass = 1;
-        
+
         //m_Rigidbody.MoveRotation(m_Rigidbody.rotation * Quaternion.AngleAxis(m_RotationSpeed * Time.fixedDeltaTime * hInput, m_Transform.up));
     }
 }
