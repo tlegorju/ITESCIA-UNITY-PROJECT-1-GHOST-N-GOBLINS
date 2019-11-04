@@ -22,6 +22,9 @@ public class WalkingTowardsTargetBehavior : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (target == null)
+            return;
+
         Vector3 direction;
         if (rigidbody.position.z < target.transform.position.z)
             direction = new Vector3(0, 0, 1);
