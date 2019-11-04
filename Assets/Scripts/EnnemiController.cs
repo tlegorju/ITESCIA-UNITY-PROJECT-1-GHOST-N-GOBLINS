@@ -14,7 +14,11 @@ public class EnnemiController : MonoBehaviour
 
     void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        GameObject tmpPlayer = GameObject.FindGameObjectWithTag("Player");
+        if(tmpPlayer!=null)
+            player = tmpPlayer.transform;
+        else
+            Debug.Log("Error : player not found");
         rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
