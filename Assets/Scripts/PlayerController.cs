@@ -34,9 +34,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+       
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
+            //m_CapsuleCollider.isTrigger = true;
             m_Rigidbody.AddForce(new Vector3(0, m_GravityForce, 0));
+           
+            Physics.IgnoreLayerCollision(8, 9,true);
+            Debug.Log(Physics.GetIgnoreLayerCollision(8, 9));
 
         }
         if (Input.GetButtonDown("Crouch") && isStanding)
@@ -52,6 +57,7 @@ public class PlayerController : MonoBehaviour
             m_CapsuleCollider.center = new Vector3(0, 1, 0);
             isStanding = true;
         }
+        
     }
     
     // Update is called once per frame
@@ -62,11 +68,21 @@ public class PlayerController : MonoBehaviour
         float hInput = Input.GetAxis("Horizontal");
 
         m_Rigidbody.MovePosition(m_Rigidbody.position + m_Transform.forward * m_TranslationSpeed * Time.fixedDeltaTime * hInput);
+        if(m_Rigidbody.velocity.y < 0)
+        {
+            Physics.IgnoreLayerCollision(8, 9, false);
+            Debug.Log(Physics.GetIgnoreLayerCollision(8, 9));
+        }
         if (!IsGrounded())
         {
             m_Rigidbody.AddForce(Physics.gravity * 2*(m_Rigidbody.mass * m_Rigidbody.mass));
+              
         }
 
         //m_Rigidbody.MoveRotation(m_Rigidbody.rotation * Quaternion.AngleAxis(m_RotationSpeed * Time.fixedDeltaTime * hInput, m_Transform.up));
     }
+    
+        
+    
+
 }
