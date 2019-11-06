@@ -11,18 +11,21 @@ public class PlayerController : MonoBehaviour
     Rigidbody m_Rigidbody;
    
     float distToGround;
-    CapsuleCollider m_capsuleCollider;
+    CapsuleCollider m_CapsuleCollider;
+    float m_CapsuleHeight;
+    bool isStanding = true;
 
     private void Awake()
     {
         m_Transform = transform;
         m_Rigidbody = GetComponent<Rigidbody>();
-        m_capsuleCollider = GetComponent<CapsuleCollider>();
+        m_CapsuleCollider = GetComponent<CapsuleCollider>();
     }
     // Start is called before the first frame update
     void Start()
     {
-        distToGround = m_capsuleCollider.bounds.extents.y;
+        distToGround = m_CapsuleCollider.bounds.extents.y;
+        m_CapsuleHeight = m_CapsuleCollider.height;
     }
 
     public bool IsGrounded() {
@@ -36,7 +39,19 @@ public class PlayerController : MonoBehaviour
             m_Rigidbody.AddForce(new Vector3(0, m_GravityForce, 0));
 
         }
+        if (Input.GetButtonDown("Crouch") && isStanding)
+        {
+            isStanding = false;
+            m_CapsuleCollider.height = m_CapsuleHeight / 2;
+            m_CapsuleCollider.center = new Vector3(0, 0, 0);
 
+        }
+        if (Input.GetButtonUp("Crouch") && !isStanding)
+        {
+            m_CapsuleCollider.height = m_CapsuleHeight;
+            m_CapsuleCollider.center = new Vector3(0, 1, 0);
+            isStanding = true;
+        }
     }
     
     // Update is called once per frame
