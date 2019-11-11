@@ -11,6 +11,7 @@ public class EnnemiController : MonoBehaviour
 
     [SerializeField] float lifePoint;
     public float LifePoint { get { return lifePoint; } }
+    [SerializeField] float damages = 1.0f;
 
     void Awake()
     {
@@ -35,7 +36,7 @@ public class EnnemiController : MonoBehaviour
         
     }
 
-    public void TakeDamages(int damages)
+    public void TakeDamages(float damages)
     {
         if (damages <= 0)
             return;
@@ -48,6 +49,17 @@ public class EnnemiController : MonoBehaviour
     private void Dies()
     {
         animator.SetTrigger("Dies");
+        GetComponent<Collider>().enabled = false;
+        rigidbody.isKinematic = true;
+        Destroy(gameObject, 2.0f);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerController>().TakeDamages();
+        }
     }
 
     /*public void MoveTowardsPosition(Vector3 targetPosition)
@@ -61,5 +73,6 @@ public class EnnemiController : MonoBehaviour
         Vector3 direction = (Vector3)(pointToLookAt - rigidbody.position).normalized;
         rigidbody.MoveRotation(Quaternion.LookRotation(direction));
     }*/
+
 
 }
