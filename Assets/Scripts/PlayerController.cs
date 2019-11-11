@@ -80,14 +80,10 @@ public class PlayerController : MonoBehaviour
             m_CapsuleCollider.center = new Vector3(0, 1, 0);
             isStanding = true;
         }
-<<<<<<< HEAD
-        
-=======
         if(Input.GetButtonDown("Fire1") && Time.time >= timeNextThrow)
         {
             FireProjectile();
         }
->>>>>>> BaseCombatSystemBranch
     }
     
     // Update is called once per frame
