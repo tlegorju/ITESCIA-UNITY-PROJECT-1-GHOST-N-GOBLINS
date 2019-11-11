@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     ///DAMAGES HANDLING
     PlayerArmorController armorController;
 
-    [SerializeField] Vector3 jumpOnDamagesForce;
+    [SerializeField] float jumpOnDamagesForce=200.0f;
     /// DAMAGES HANDLING
 
     private void Awake()
@@ -97,7 +97,6 @@ public class PlayerController : MonoBehaviour
         if(m_Rigidbody.velocity.y < 0)
         {
             Physics.IgnoreLayerCollision(8, 9, false);
-            Debug.Log(Physics.GetIgnoreLayerCollision(8, 9));
         }
         if (!IsGrounded())
         {
@@ -154,19 +153,19 @@ public class PlayerController : MonoBehaviour
 
     private void JumpOnDamages()
     {
-        m_Rigidbody.AddForce(jumpOnDamagesForce* (lookingRight?-1:1)); ///Test if we have to throw player to the left or to the right
+        m_Rigidbody.AddForce(0, jumpOnDamagesForce, jumpOnDamagesForce* (lookingRight?-1:1)); ///Test if we have to throw player to the left or to the right
         StartCoroutine("FlashOnDamages");
     }
 
     IEnumerator FlashOnDamages()
     {
-        canTakeDamages = false;
         int flashingCount = 8;
         float flashingInterval = .1f;
         bool displayModel = true;
 
         MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
 
+        EnableDamages(false);
         for (int counter = 0; counter < flashingCount; counter++)
         {
             displayModel = !displayModel;
@@ -175,6 +174,12 @@ public class PlayerController : MonoBehaviour
 
             yield return new WaitForSeconds(flashingInterval);
         }
-        canTakeDamages = true;
+        EnableDamages(true);
+    }
+
+    private void EnableDamages(bool enable)
+    {
+        canTakeDamages = enable;
+        Physics.IgnoreLayerCollision(9, 10, !enable);
     }
 }

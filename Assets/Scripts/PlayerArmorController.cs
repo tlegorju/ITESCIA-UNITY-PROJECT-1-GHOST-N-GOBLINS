@@ -36,7 +36,8 @@ public class PlayerArmorController : MonoBehaviour
 
     public void Unequip()
     {
-        for(int i=0; i<3; i++)
+        Physics.IgnoreLayerCollision(8, 12, false);
+        for (int i=0; i<3; i++)
         {
             armorRef[i].DetachArmor(Vector3.up * 400 + Vector3.forward * Random.Range(-200, 200));
         }
@@ -45,6 +46,7 @@ public class PlayerArmorController : MonoBehaviour
 
     public void Equip()
     {
+        Physics.IgnoreLayerCollision(8, 12, true);
         for (int i = 0; i < 3; i++)
         {
             armorRef[i].AttachArmor(transform);

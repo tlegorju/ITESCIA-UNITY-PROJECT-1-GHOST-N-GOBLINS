@@ -18,12 +18,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Wall
+  - Player
+  - Ennemies
+  - Weapon
+  - Armor
+  - Collectible
   - 
   - 
   - 

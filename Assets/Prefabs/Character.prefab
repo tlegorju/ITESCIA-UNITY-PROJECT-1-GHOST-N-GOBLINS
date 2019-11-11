@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2525685317756010743}
   - component: {fileID: 2525685317756010741}
   - component: {fileID: 2525685317756010742}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 2525685317763191349}
   - component: {fileID: 2525685317763191499}
   - component: {fileID: 2525685317763191348}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 2525685317867439868}
   - component: {fileID: 2525685317867439858}
   - component: {fileID: 2525685317867439859}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 2525685317997183223}
   - component: {fileID: 2525685317997183221}
   - component: {fileID: 2525685317997183222}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 2525685318342843325}
   - component: {fileID: 2525685318342843315}
   - component: {fileID: 2525685318342843324}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CharacterModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 2525685318626141338}
   - component: {fileID: 2525685318626141339}
   - component: {fileID: 2525685318626141316}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 2525685318847129769}
   - component: {fileID: 2525685318847129775}
   - component: {fileID: 2525685318847129768}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 2525685318887918512}
   - component: {fileID: 2525685318887918513}
   - component: {fileID: 7830574048581816955}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -648,6 +648,7 @@ MonoBehaviour:
   fireRate: 0.2
   throwForce: 2000
   angleThrowInRadian: 0.1
+  jumpOnDamagesForce: 200
 --- !u!1 &2525685319027825380
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +658,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2525685319027825403}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Limb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +693,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3539418197053887795}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FirePoint
   m_TagString: Player
   m_Icon: {fileID: 0}

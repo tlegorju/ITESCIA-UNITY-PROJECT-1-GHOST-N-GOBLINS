@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5480647600705906688}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Limb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5480647600794491474}
   - component: {fileID: 5480647600794491476}
   - component: {fileID: 5480647600794491475}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 5480647600829200714}
   - component: {fileID: 5480647600829200713}
   - component: {fileID: 5480647600829200712}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ghost1
   m_TagString: Ennemi
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 5480647601107752545}
   - component: {fileID: 5480647601107752544}
   - component: {fileID: 5480647601107752575}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 5480647601357334854}
   - component: {fileID: 5480647601357334856}
   - component: {fileID: 5480647601357334855}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnnemiModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 5480647601824347143}
   - component: {fileID: 5480647601824347145}
   - component: {fileID: 5480647601824347144}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 5480647601987477710}
   - component: {fileID: 5480647601987477552}
   - component: {fileID: 5480647601987477711}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

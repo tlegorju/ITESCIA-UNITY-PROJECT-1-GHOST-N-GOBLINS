@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2547181687022602372}
   - component: {fileID: 2547181687022602374}
   - component: {fileID: 2547181687022602373}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 2547181687027620422}
   - component: {fileID: 2547181687027620536}
   - component: {fileID: 2547181687027620423}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 2547181687200026255}
   - component: {fileID: 2547181687200026241}
   - component: {fileID: 2547181687200026240}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 2547181687330883716}
   - component: {fileID: 2547181687330883718}
   - component: {fileID: 2547181687330883717}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 2547181687606219726}
   - component: {fileID: 2547181687606219712}
   - component: {fileID: 2547181687606219727}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnnemiModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 2547181687892733161}
   - component: {fileID: 2547181687892733160}
   - component: {fileID: 2547181687892733175}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 2547181688151294914}
   - component: {fileID: 2547181688151294913}
   - component: {fileID: 2547181688151294912}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Zombie2
   m_TagString: Ennemi
   m_Icon: {fileID: 0}
@@ -582,6 +582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   lifePoint: 2
+  damages: 1
 --- !u!1 &2547181688179777753
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +594,7 @@ GameObject:
   - component: {fileID: 2547181688179777754}
   - component: {fileID: 2547181688179777756}
   - component: {fileID: 2547181688179777755}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +671,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2547181688292250248}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Limb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
