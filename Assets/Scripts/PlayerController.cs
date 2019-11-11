@@ -29,12 +29,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float angleThrowInRadian = 0.3f;
     ///WEAPON HANDLING
 
+    PlayerArmorController armorController;
+
 
     private void Awake()
     {
         m_Transform = transform;
         m_Rigidbody = GetComponent<Rigidbody>();
         m_CapsuleCollider = GetComponent<CapsuleCollider>();
+
+        armorController = GetComponent<PlayerArmorController>();
 
         timeNextThrow = Time.time;
     }
@@ -123,6 +127,8 @@ public class PlayerController : MonoBehaviour
         lifePoint -= damages;
         if (lifePoint <= 0)
             Dies();
+        else
+            armorController.Unequip();
 
         StartCoroutine("FlashOnDamages");
     }
