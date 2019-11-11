@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WalkingFrontBehavior : StateMachineBehaviour
 {
-    EnnemiController controller;
     Rigidbody rigidbody;
 
     [SerializeField] float walkingSpeed;
@@ -14,7 +13,6 @@ public class WalkingFrontBehavior : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         rigidbody = animator.GetComponent<Rigidbody>();
-        controller = animator.GetComponent<EnnemiController>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

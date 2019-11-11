@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float lifePoint = 2.0f;
     private bool canTakeDamages=true;
 
     [SerializeField] float m_TranslationSpeed;
@@ -29,8 +28,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float angleThrowInRadian = 0.3f;
     ///WEAPON HANDLING
 
+    ///DAMAGES HANDLING
     PlayerArmorController armorController;
 
+    [SerializeField] Vector3 jumpOnDamagesForce;
+    /// DAMAGES HANDLING
 
     private void Awake()
     {
@@ -119,23 +121,29 @@ public class PlayerController : MonoBehaviour
             lookingRight = false;
     }
 
-    public void TakeDamages(float damages)
+    public void TakeDamages()
     {
         if (!canTakeDamages)
             return;
 
-        lifePoint -= damages;
-        if (lifePoint <= 0)
+        //lifePoint -= damages;
+        //if (lifePoint <= 0)
+        if(!armorController.ArmorEquipped)
             Dies();
         else
             armorController.Unequip();
-
-        StartCoroutine("FlashOnDamages");
+        JumpOnDamages();
     }
 
     private void Dies()
     {
         Destroy(gameObject);
+    }
+
+    private void JumpOnDamages()
+    {
+        m_Rigidbody.AddForce(jumpOnDamagesForce* (lookingRight?-1:1)); ///Test if we have to throw player to the left or to the right
+        StartCoroutine("FlashOnDamages");
     }
 
     IEnumerator FlashOnDamages()

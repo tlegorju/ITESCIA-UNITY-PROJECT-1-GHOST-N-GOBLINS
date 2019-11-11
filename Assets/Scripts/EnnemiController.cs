@@ -58,7 +58,7 @@ public class EnnemiController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerController>().TakeDamages(damages);
+            collision.gameObject.GetComponent<PlayerController>().TakeDamages();
         }
     }
 
@@ -73,5 +73,6 @@ public class EnnemiController : MonoBehaviour
         Vector3 direction = (Vector3)(pointToLookAt - rigidbody.position).normalized;
         rigidbody.MoveRotation(Quaternion.LookRotation(direction));
     }*/
+
 
 }

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ennemi
+  - Wall
+  - Weapon
+  - Armor
+  - Collectible
   layers:
   - Default
   - TransparentFX
