@@ -64,7 +64,6 @@ public class PlayerController : MonoBehaviour
             m_Rigidbody.AddForce(new Vector3(0, m_GravityForce, 0));
            
             Physics.IgnoreLayerCollision(8, 9,true);
-            Debug.Log(Physics.GetIgnoreLayerCollision(8, 9));
 
         }
         if (Input.GetButtonDown("Crouch") && isStanding)

@@ -44,6 +44,8 @@ public class EnnemiController : MonoBehaviour
 
         if (lifePoint <= 0)
             Dies();
+        else
+            animator.SetTrigger("Hitted");
     }
 
     private void Dies()
