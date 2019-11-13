@@ -39,7 +39,6 @@ public class FlyingTowardsTargetBehavior : StateMachineBehaviour
             UpdateFlyingDirection();
 
         //rigidbody.MovePosition(rigidbody.position + direction * walkingSpeed * Time.fixedDeltaTime);
-        Debug.Log(Vector3.MoveTowards(rigidbody.position, targetPosition, walkingSpeed * Time.fixedDeltaTime));
         rigidbody.MovePosition(Vector3.MoveTowards(rigidbody.position, targetPosition, walkingSpeed * Time.fixedDeltaTime));
         rigidbody.MoveRotation(Quaternion.RotateTowards(rigidbody.rotation,
                                                         Quaternion.LookRotation((targetPosition-rigidbody.position).normalized),

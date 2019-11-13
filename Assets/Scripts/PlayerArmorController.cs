@@ -49,7 +49,8 @@ public class PlayerArmorController : MonoBehaviour
         Physics.IgnoreLayerCollision(8, 12, true);
         for (int i = 0; i < 3; i++)
         {
-            armorRef[i].AttachArmor(transform);
+            if(armorRef[i]!=null)
+                armorRef[i].AttachArmor(slotArray[i]);
         }
         armorEquipped = true;
     }

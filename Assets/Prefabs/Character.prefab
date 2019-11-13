@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2525685317756010742}
   m_Layer: 9
   m_Name: RightLeg
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 2525685317763191348}
   m_Layer: 9
   m_Name: RightArm
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 2525685317867439859}
   m_Layer: 9
   m_Name: LeftArm
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 2525685317997183222}
   m_Layer: 9
   m_Name: LeftLeg
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 2525685318342843324}
   m_Layer: 9
   m_Name: CharacterModel
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 2525685318626141316}
   m_Layer: 9
   m_Name: Nose
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 2525685318847129768}
   m_Layer: 9
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -575,6 +575,7 @@ GameObject:
   - component: {fileID: 2525685318887918512}
   - component: {fileID: 2525685318887918513}
   - component: {fileID: 7830574048581816955}
+  - component: {fileID: 1432577856}
   m_Layer: 9
   m_Name: Character
   m_TagString: Player
@@ -641,14 +642,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TranslationSpeed: 10
-  m_GravityForce: 500
+  m_GravityForce: 700
   weaponPrefab: {fileID: 6203293819400212798, guid: 1baccd44272927741a3a6226ecce70be,
     type: 3}
   firePoint: {fileID: 3539418197053887795}
   fireRate: 0.2
   throwForce: 2000
   angleThrowInRadian: 0.1
-  jumpOnDamagesForce: 200
+  jumpOnDamagesForce: 400
+--- !u!114 &1432577856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525685318887918524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f2e69cf26ce984ebc98f64b03aa13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotArray:
+  - {fileID: 2525685318847129769}
+  - {fileID: 2525685318342843325}
+  - {fileID: 2525685317756010743}
+  armorRef:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2525685319027825380
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,7 +681,7 @@ GameObject:
   - component: {fileID: 2525685319027825403}
   m_Layer: 9
   m_Name: Limb
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
