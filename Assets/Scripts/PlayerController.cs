@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float fireRate=.25f;
     private float timeNextThrow;
     [SerializeField] float throwForce = 1000.0f;
-    [SerializeField] float angleThrowInRadian = 0.3f;
     ///WEAPON HANDLING
 
     ///DAMAGES HANDLING
@@ -111,14 +110,15 @@ public class PlayerController : MonoBehaviour
     private void FireProjectile()
     {
         GameObject tmp = Instantiate(weaponPrefab, firePoint.position, Quaternion.identity) as GameObject;
-        if(lookingRight)
+        tmp.GetComponent<Rigidbody>().AddForce(Vector3.forward * throwForce * (lookingRight?1:-1), ForceMode.Impulse);
+        /*if (lookingRight)
         {
-            tmp.GetComponent<Rigidbody>().AddForce(throwForce * new Vector3(0, Mathf.Sin(angleThrowInRadian), Mathf.Cos(angleThrowInRadian)));
+            tmp.GetComponent<Rigidbody>().AddForce(throwForce * new Vector3(0, 0, Mathf.Cos(angleThrowInRadian)));
         }
         else
         {
             tmp.GetComponent<Rigidbody>().AddForce(throwForce * new Vector3(0, Mathf.Sin(angleThrowInRadian), -Mathf.Cos(angleThrowInRadian)));
-        }
+        }*/
         timeNextThrow = Time.time + fireRate;
     }
 
