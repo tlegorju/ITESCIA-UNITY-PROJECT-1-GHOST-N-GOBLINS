@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BodyPart { Head, Chest, Legs, Arm};
+public enum BodyPart { Head, Chest, LegLeft, RightLeg, ShoulderLeft, ShoulderRight, ForearmLeft, ForearmRight, LAST};
 
 public class PlayerArmorController : MonoBehaviour
 {
-    public Transform[] slotArray = new Transform[3];
-    public ArmorController[] armorRef = new ArmorController[3];
+    public Transform[] slotArray = new Transform[(int)BodyPart.LAST];
+    public ArmorController[] armorRef = new ArmorController[(int)BodyPart.LAST];
 
     private bool armorEquipped = true;
     public bool ArmorEquipped { get { return armorEquipped; } }
@@ -37,7 +37,7 @@ public class PlayerArmorController : MonoBehaviour
     public void Unequip()
     {
         Physics.IgnoreLayerCollision(8, 12, false);
-        for (int i=0; i<3; i++)
+        for (int i=0; i< (int)BodyPart.LAST; i++)
         {
             armorRef[i].DetachArmor(Vector3.up * 400 + Vector3.forward * Random.Range(-200, 200));
         }
@@ -47,7 +47,7 @@ public class PlayerArmorController : MonoBehaviour
     public void Equip()
     {
         Physics.IgnoreLayerCollision(8, 12, true);
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < (int)BodyPart.LAST; i++)
         {
             if(armorRef[i]!=null)
                 armorRef[i].AttachArmor(slotArray[i]);
