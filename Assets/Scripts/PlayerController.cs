@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-       
+        Debug.Log(IsGrounded());
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             //m_CapsuleCollider.isTrigger = true;
