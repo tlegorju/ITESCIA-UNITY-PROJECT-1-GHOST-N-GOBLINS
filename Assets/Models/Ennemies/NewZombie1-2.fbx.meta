@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ebd1b99597a286449a25d202a29a7796
+guid: 95ecee8937278194187d7a88454e696a
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
@@ -7,33 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: MatBlack
-    second: {fileID: 2100000, guid: 4d8671608141c174194d12955b53dcaa, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MatBrain
-    second: {fileID: 2100000, guid: 9695acb16d431af43bbc67513afdc6ca, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: MatMetal
-    second: {fileID: 2100000, guid: 06a149f460320514cae51859cc94f797, type: 2}
+    second: {fileID: 2100000, guid: b7e9699f1b9c0124787d60ffa19fffa4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MatPants
-    second: {fileID: 2100000, guid: e91b4e358ddceb14594ed6ead950d424, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MatZombieSkin
-    second: {fileID: 2100000, guid: c75cb40922bfc214ca467a508722ae31, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ZombieText
-    second: {fileID: 2100000, guid: 430712922da49df4f9e17d892ad6691b, type: 2}
+    second: {fileID: 2100000, guid: 3f9142a0f8ae1794186a971045d65cf2, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -52,7 +32,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 1
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -114,10 +94,10 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

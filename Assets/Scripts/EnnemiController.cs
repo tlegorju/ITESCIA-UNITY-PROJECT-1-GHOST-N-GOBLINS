@@ -27,7 +27,8 @@ public class EnnemiController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //animator.SetTrigger("Spawn");
+        animator.SetBool("IsWalking", true);
     }
 
     // Update is called once per frame
@@ -45,7 +46,7 @@ public class EnnemiController : MonoBehaviour
         if (lifePoint <= 0)
             Dies();
         else
-            animator.SetTrigger("Hitted");
+            animator.SetTrigger("TakeDamages");
     }
 
     private void Dies()

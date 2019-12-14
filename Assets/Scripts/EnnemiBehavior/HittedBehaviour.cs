@@ -5,6 +5,7 @@ using UnityEngine;
 public class HittedBehaviour : StateMachineBehaviour
 {
     [SerializeField] float hurtedDuration = 1.0f;
+    float timedHurtedDuration;
     [SerializeField] float flashDuration = .1f;
     private float nextTimeFlash;
     private bool flashing = false;
@@ -20,13 +21,14 @@ public class HittedBehaviour : StateMachineBehaviour
         renderers = animator.GetComponentsInChildren<Renderer>();
         originalMaterial = renderers[0].material;
         nextTimeFlash = Time.time;
-        hurtedDuration += Time.time;
+        timedHurtedDuration = hurtedDuration + Time.time;
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(hurtedDuration<=Time.time)
+        if(timedHurtedDuration <= Time.time)
         {
             animator.SetTrigger("HittedStop");
             return;
