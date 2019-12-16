@@ -3,7 +3,17 @@ guid: bce228e14410fa1419859b983504bf3a
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MatManche
+    second: {fileID: 2100000, guid: 0479e69c999e19a419cee96253ebcc81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MatPique
+    second: {fileID: 2100000, guid: 37efc6932dac7d84a89efebf0ff7b8ed, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

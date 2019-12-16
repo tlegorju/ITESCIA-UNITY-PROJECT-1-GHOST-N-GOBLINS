@@ -3,7 +3,22 @@ guid: ec82db64a271128439998f8e5f54f753
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MatChain
+    second: {fileID: 2100000, guid: 73f31dc1a3730504082dc788337685c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MatDeco
+    second: {fileID: 2100000, guid: e6f86a3108f34b040aa684a73c2fc233, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MatPlateStraight
+    second: {fileID: 2100000, guid: 40a68bd289664db4cb676d14ccd9e567, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
