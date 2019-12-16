@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 776092841335540838}
   - component: {fileID: 514049694}
   - component: {fileID: 828184055}
+  - component: {fileID: 590552617}
+  - component: {fileID: 590552616}
   m_Layer: 10
   m_Name: NewZombie1
   m_TagString: Ennemi
@@ -99,6 +101,137 @@ MonoBehaviour:
   player: {fileID: 0}
   lifePoint: 3
   damages: 1
+--- !u!82 &590552617
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871999800759829680}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &590552616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871999800759829680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f08c06a3a755cb459b214ef39f015aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnClips:
+  - {fileID: 8300000, guid: cda23a640e990df478a48c5b2ea3c264, type: 3}
+  - {fileID: 8300000, guid: 55999f37b4bd3054796be241d495aff2, type: 3}
+  - {fileID: 8300000, guid: 7df454da2f440324e873e6d783b1cd29, type: 3}
+  - {fileID: 8300000, guid: f86fd850640887244adef06ce3b897b1, type: 3}
+  runClips:
+  - {fileID: 8300000, guid: dc5561d6bd8fda34b9c7cf38c75a67ed, type: 3}
+  - {fileID: 8300000, guid: 9860f12da7faf7b4dab1705b56cd1a50, type: 3}
+  - {fileID: 8300000, guid: afa7365a5e3e62f478c7964c7adc5259, type: 3}
+  - {fileID: 8300000, guid: 5030d65baac2c064791d50a54f8b1b3e, type: 3}
+  attackClips:
+  - {fileID: 8300000, guid: 82a87013c9945a547a0809bd013d48a3, type: 3}
+  - {fileID: 8300000, guid: 8a14fbaeb65c0a74cb72beac01090525, type: 3}
+  - {fileID: 8300000, guid: ee490e74f2a3a804d97e4854596c7602, type: 3}
+  - {fileID: 8300000, guid: 565429db6ddb6994aac68ca19234867a, type: 3}
+  hurtedClip:
+  - {fileID: 8300000, guid: 96a37632918a64f41973f2e5d5dcee3a, type: 3}
+  - {fileID: 8300000, guid: bab9ff021667b3d46ae035f4ca98dae2, type: 3}
+  diesClips:
+  - {fileID: 8300000, guid: 6140813615b02bf40b8cfbd184b17431, type: 3}
+  - {fileID: 8300000, guid: 5f4cfd34f0e22a5428b671f7e241fec5, type: 3}
+  - {fileID: 8300000, guid: fd38c6c690832d04ca3850918310bc0a, type: 3}
+  - {fileID: 8300000, guid: a3d565809be37ed4f9f7212752a612ed, type: 3}
 --- !u!1001 &2871999801579824886
 PrefabInstance:
   m_ObjectHideFlags: 0

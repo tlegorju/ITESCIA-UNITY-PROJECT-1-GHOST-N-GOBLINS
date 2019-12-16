@@ -28,11 +28,11 @@ public class HittedBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(timedHurtedDuration <= Time.time)
+        /*if(timedHurtedDuration <= Time.time)
         {
             animator.SetTrigger("HittedStop");
             return;
-        }
+        }*/
 
         if(Time.time > nextTimeFlash)
         {

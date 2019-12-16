@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnnemiController : MonoBehaviour
+public class EnnemiController : EntityController
 {
     [SerializeField] Transform player;
     public Transform Player {get{return player;}}
@@ -29,6 +29,8 @@ public class EnnemiController : MonoBehaviour
     {
         //animator.SetTrigger("Spawn");
         animator.SetBool("IsWalking", true);
+        CallOnSpawn();
+        Invoke("CallOnMove", 1.5f);
     }
 
     // Update is called once per frame
@@ -46,11 +48,16 @@ public class EnnemiController : MonoBehaviour
         if (lifePoint <= 0)
             Dies();
         else
+        {
             animator.SetTrigger("TakeDamages");
+            CallOnHurted();
+        }
     }
 
     private void Dies()
     {
+        CallOnDies();
+
         animator.SetTrigger("Dies");
         GetComponent<Collider>().enabled = false;
         rigidbody.isKinematic = true;
@@ -61,7 +68,8 @@ public class EnnemiController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerController>().TakeDamages();
+            //collision.gameObject.GetComponent<PlayerController>().TakeDamages();
+            CallOnAttack();
         }
     }
 

@@ -7,6 +7,7 @@ public class SimplePlayerMovement : MonoBehaviour
 {
     [SerializeField] private float walkSpeed = 30f;
     [SerializeField] private float jumpForce = 30f;
+    [SerializeField] private float throwBackForce = 30f;
 
     private new Rigidbody rigidbody;
 
@@ -21,6 +22,10 @@ public class SimplePlayerMovement : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
 
         playerInput.OnJump += Jump;
+
+        SimplePlayerController playerController = GetComponent<SimplePlayerController>();
+        if (playerController)
+            playerController.OnHurted += ThrowPlayerBack;
     }
 
 
@@ -33,7 +38,7 @@ public class SimplePlayerMovement : MonoBehaviour
         lastThrust = playerInput.Vertical;*/
 
         //rigidbody.MoveRotation(Quaternion.Euler(0, 180 * (playerInput.Horizontal), 0));
-        Debug.Log(IsGrounded());
+
         rigidbody.MovePosition(rigidbody.position + transform.forward * playerInput.Horizontal * walkSpeed * Time.fixedDeltaTime);
     }
 
@@ -48,5 +53,12 @@ public class SimplePlayerMovement : MonoBehaviour
     public bool IsGrounded()
     {
         return !Physics.Raycast(transform.position, -Vector3.up);
+    }
+
+    private void ThrowPlayerBack()
+    {
+        Vector3 force = Vector3.up - Vector3.forward;
+        force = force.normalized * throwBackForce;
+        rigidbody.AddForce(force, ForceMode.Impulse);
     }
 }

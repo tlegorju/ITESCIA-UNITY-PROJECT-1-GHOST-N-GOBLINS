@@ -578,6 +578,10 @@ GameObject:
   - component: {fileID: 2525685318887918513}
   - component: {fileID: 7830574048581816955}
   - component: {fileID: 1432577856}
+  - component: {fileID: 778719196}
+  - component: {fileID: 778719197}
+  - component: {fileID: 778719198}
+  - component: {fileID: 778719199}
   m_Layer: 9
   m_Name: Character
   m_TagString: Player
@@ -638,7 +642,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2525685318887918524}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 840e8ee3fe66f1548bc3777b18a2fdf0, type: 3}
   m_Name: 
@@ -681,6 +685,63 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &778719196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525685318887918524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c20aabde0acad4ebdba094448989d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 5207754698854485953, guid: 1baccd44272927741a3a6226ecce70be,
+    type: 3}
+  throwPoint: {fileID: 3539418197053887795}
+  throwForce: 50
+--- !u!114 &778719197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525685318887918524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa0b3a1073f9e84697ab094fbfda8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 10
+  jumpForce: 11
+  throwBackForce: 10
+--- !u!114 &778719198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525685318887918524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb526930efa6eb458a1112dacfcbb72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &778719199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525685318887918524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59320e6a91d48454682ea5b5a6d9a520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  invulnerabilityDuration: 2
 --- !u!1 &2525685319027825380
 GameObject:
   m_ObjectHideFlags: 0
