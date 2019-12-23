@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/ArmorController.cs.meta
 guid: 75b5c792eaa783748b21fde3e9431a87
+=======
+guid: 3856a7767171e9747a9e51c962bbaf5a
+>>>>>>> 9785348e9caecdc6d1d2b33b32d93fc1d2ec4674:Assets/Scripts/Editor/SplineComponentEditor.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
