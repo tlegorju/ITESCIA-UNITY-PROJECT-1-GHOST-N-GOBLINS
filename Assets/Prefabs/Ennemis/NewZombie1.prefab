@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 828184055}
   - component: {fileID: 590552617}
   - component: {fileID: 590552616}
+  - component: {fileID: 8530789479465795860}
   m_Layer: 10
   m_Name: NewZombie1
   m_TagString: Ennemi
@@ -232,6 +233,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5f4cfd34f0e22a5428b671f7e241fec5, type: 3}
   - {fileID: 8300000, guid: fd38c6c690832d04ca3850918310bc0a, type: 3}
   - {fileID: 8300000, guid: a3d565809be37ed4f9f7212752a612ed, type: 3}
+--- !u!114 &8530789479465795860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871999800759829680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739d7494ec17b924eaa4ae59d46be866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 2674c032218fcfa4a84ad4f3ea446eb2, type: 2}
+  timeFlashing: 1
+  intervalFlash: 0.2
 --- !u!1001 &2871999801579824886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -713,7 +729,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6057140222963153312, guid: 95ecee8937278194187d7a88454e696a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 95ecee8937278194187d7a88454e696a, type: 3}
 --- !u!4 &7107190749949709804 stripped
 Transform:

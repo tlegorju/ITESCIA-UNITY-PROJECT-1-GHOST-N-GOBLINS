@@ -13,7 +13,7 @@ public class EnnemiController : EntityController
     public float LifePoint { get { return lifePoint; } }
     [SerializeField] float damages = 1.0f;
 
-    void Awake()
+    protected virtual void Awake()
     {
         GameObject tmpPlayer = GameObject.FindGameObjectWithTag("Player");
         if(tmpPlayer!=null)
@@ -61,7 +61,7 @@ public class EnnemiController : EntityController
         animator.SetTrigger("Dies");
         GetComponent<Collider>().enabled = false;
         rigidbody.isKinematic = true;
-        Destroy(gameObject, 2.0f);
+        Destroy(gameObject, 1.5f);
     }
 
     private void OnCollisionEnter(Collision collision)

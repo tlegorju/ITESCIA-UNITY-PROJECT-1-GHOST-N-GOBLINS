@@ -17,7 +17,7 @@ public class SoundEffectController : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
 
-        EnnemiController controller = GetComponent<EnnemiController>();
+        EntityController controller = GetComponent<EntityController>();
         controller.OnSpawn += PlaySpawn;
         controller.OnMove += PlayRun;
         controller.OnAttack += PlayAttack;
