@@ -2,38 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossIdleBehaviour : StateMachineBehaviour
+public class BossFlyToTargetBehaviour : StateMachineBehaviour
 {
-    private float timer;
-    [SerializeField] float minTimer=1.0f, maxTimer=2.0f;
+    Vector3 targetPosition;
+
+    private Rigidbody rigidbody;
+
+    [SerializeField] private float FlyingSpeed = 20.0f;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        timer = (minTimer + maxTimer) / 2; //Random.Range(minTimer, maxTimer);
+        rigidbody = animator.GetComponent<Rigidbody>();
+
+        targetPosition = animator.GetComponent<BossController>().GetCurrentTargetPosition(animator.GetInteger("CurrentTargetIndex"));
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        timer -= Time.deltaTime;
-        if(timer<=0)
-        {
-            if(animator.GetInteger("CurrentTargetIndex") <= animator.GetInteger("LastTargetIndex"))
-            {
-                animator.SetBool("FlyToTarget", true);
-            }
-            else
-            {
-                animator.SetBool("FlyTowardsPlayer", true);
-            }
-        }
+        rigidbody.MovePosition(Vector3.MoveTowards(rigidbody.position, targetPosition, FlyingSpeed * Time.deltaTime));
+        if(Vector3.Distance(rigidbody.position, targetPosition) < .3f)
+            animator.SetBool("FlyToTarget", false);
+
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        animator.SetInteger("CurrentTargetIndex", animator.GetInteger("CurrentTargetIndex") + 1);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

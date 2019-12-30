@@ -6,6 +6,8 @@ public class BossController : EnnemiController
 {
     [SerializeField] float lifePointToStage2 = 5;
 
+    [SerializeField] Transform[] targetPoints;
+
     protected override void Awake()
     {
         base.Awake();
@@ -14,7 +16,7 @@ public class BossController : EnnemiController
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetComponent<Animator>().SetInteger("LastTargetIndex", targetPoints.Length-1);
     }
 
     // Update is called once per frame
@@ -29,5 +31,12 @@ public class BossController : EnnemiController
         {
             GetComponent<Animator>().SetTrigger("Stage2");
         }
+    }
+
+    public Vector3 GetCurrentTargetPosition(int currentTargetIndex)
+    {
+        if (currentTargetIndex >= 0 && currentTargetIndex < targetPoints.Length)
+            return targetPoints[currentTargetIndex].position;
+        return Vector3.zero;
     }
 }
