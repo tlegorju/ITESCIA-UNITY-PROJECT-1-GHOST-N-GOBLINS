@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/BossFlyToTargetBehaviour.cs.meta
-guid: 990caf0b91a6e2042990a725a55e396c
-=======
-guid: 671e78be521fa16498133e2f4de54c2a
->>>>>>> CharacterBranch:Assets/AttachPlayer.cs.meta
+guid: 95d2e9c6b5d00a74b8df85b300871515
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
