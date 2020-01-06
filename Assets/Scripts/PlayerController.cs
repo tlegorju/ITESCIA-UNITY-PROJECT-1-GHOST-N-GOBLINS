@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_TranslationSpeed;
     [SerializeField] float m_GravityForce;
     //[SerializeField] float m_RotationSpeed;
-    Transform m_Transform;
+    
     Rigidbody m_Rigidbody;
    
     float distToGround;
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        m_Transform = transform;
+        
         m_Rigidbody = GetComponent<Rigidbody>();
         m_CapsuleCollider = GetComponent<CapsuleCollider>();
 
@@ -51,17 +52,18 @@ public class PlayerController : MonoBehaviour
     }
 
     public bool IsGrounded() {
-        return Physics.Raycast(transform.position, -Vector3.up, 0.1f);
+        return Physics.Raycast(transform.position, -Vector3.up,0.5f);
     }
 
     private void Update()
     {
-       
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        Debug.DrawRay(transform.position,new Vector3(0,-0.5f,0),Color.red);
+        Debug.Log(IsGrounded());
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             //m_CapsuleCollider.isTrigger = true;
             m_Rigidbody.AddForce(new Vector3(0, m_GravityForce, 0));
-           
+            //Debug.Log("Jump");
             Physics.IgnoreLayerCollision(8, 9,true);
 
         }
@@ -83,23 +85,26 @@ public class PlayerController : MonoBehaviour
             FireProjectile();
         }
     }
-    
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+
         float vInput = Input.GetAxis("Vertical");
         float hInput = Input.GetAxis("Horizontal");
 
-        m_Rigidbody.MovePosition(m_Rigidbody.position + m_Transform.forward * m_TranslationSpeed * Time.fixedDeltaTime * hInput);
-        if(m_Rigidbody.velocity.y < 0)
+        //m_Rigidbody.MovePosition(m_Rigidbody.position + transform.forward * m_TranslationSpeed * Time.fixedDeltaTime * hInput);
+        transform.position = transform.position + transform.forward * m_TranslationSpeed * Time.fixedDeltaTime * hInput;
+
+
+        if (m_Rigidbody.velocity.y < 0)
         {
             Physics.IgnoreLayerCollision(8, 9, false);
         }
         if (!IsGrounded())
         {
-            m_Rigidbody.AddForce(Physics.gravity * 2*(m_Rigidbody.mass * m_Rigidbody.mass));
-              
+            m_Rigidbody.AddForce(Physics.gravity * 2 * (m_Rigidbody.mass * m_Rigidbody.mass));
+
         }
 
         UpdateFacingDirection();
@@ -181,4 +186,6 @@ public class PlayerController : MonoBehaviour
         canTakeDamages = enable;
         Physics.IgnoreLayerCollision(9, 10, !enable);
     }
+
+    
 }
