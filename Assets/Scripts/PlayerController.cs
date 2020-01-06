@@ -57,14 +57,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-<<<<<<< HEAD
+
         Debug.Log(IsGrounded());
         if (Input.GetButtonDown("Jump") && IsGrounded())
-=======
+
         Debug.DrawRay(transform.position,new Vector3(0,-0.5f,0),Color.red);
         Debug.Log(IsGrounded());
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
->>>>>>> CharacterBranch
+
         {
             //m_CapsuleCollider.isTrigger = true;
             m_Rigidbody.AddForce(new Vector3(0, m_GravityForce, 0));
