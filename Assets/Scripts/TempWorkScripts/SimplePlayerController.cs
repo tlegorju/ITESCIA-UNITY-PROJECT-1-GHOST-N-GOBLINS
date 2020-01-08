@@ -3,20 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimplePlayerController : MonoBehaviour
+public class SimplePlayerController : EntityController
 {
-    [SerializeField] private int maxHealth = 100;
-    private int health;
-
     private bool canTakeDamages = true;
     [SerializeField] float invulnerabilityDuration = 2.0f;
 
-    public event Action OnHurted = delegate { };
-    public event Action OnDie = delegate { };
-
     private void Awake()
     {
-        health = maxHealth;
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -27,12 +21,10 @@ public class SimplePlayerController : MonoBehaviour
         }
     }
 
-    private void TakeDamages(int damage)
+    public override void TakeDamages(int damage)
     {
         if (!canTakeDamages)
             return;
-
-        health -= damage;
 
         PlayerArmorController armorController = GetComponent<PlayerArmorController>();
 
@@ -44,40 +36,27 @@ public class SimplePlayerController : MonoBehaviour
 
     private void Hurted()
     {
-        StartCoroutine("FlashOnDamages");
-        OnHurted();
+        DisableDamages();
+        Invoke("EnableDamages", invulnerabilityDuration);
+        CallOnHurted();
     }
 
-    private void Dies()
+    public override void Dies()
     {
-        Debug.Log("Dies");
-        OnDie();
+        CallOnDies();
         Destroy(gameObject);
     }
 
-    IEnumerator FlashOnDamages()
+
+    private void EnableDamages()
     {
-        int flashingCount = 8;
-        float flashingInterval = .1f;
-        bool displayModel = true;
-
-        MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
-
-        EnableDamages(false);
-        for (int counter = 0; counter < flashingCount; counter++)
-        {
-            displayModel = !displayModel;
-            for (int i = 0; i < renderers.Length; i++)
-                renderers[i].enabled = displayModel;
-
-            yield return new WaitForSeconds(flashingInterval);
-        }
-        EnableDamages(true);
+        canTakeDamages = true;
+        Physics.IgnoreLayerCollision(9, 10, false);
     }
 
-    private void EnableDamages(bool enable)
+    private void DisableDamages()
     {
-        canTakeDamages = enable;
-        Physics.IgnoreLayerCollision(9, 10, !enable);
+        canTakeDamages = false;
+        Physics.IgnoreLayerCollision(9, 10, true);
     }
 }

@@ -23,6 +23,7 @@ public class FlashControllerScript : MonoBehaviour
         }
 
         controller.OnHurted += StartFlashing;
+        controller.OnDies += StartFlashing;
 
         renderer = GetComponentInChildren<Renderer>();
         GetOriginalMaterials();
@@ -38,7 +39,6 @@ public class FlashControllerScript : MonoBehaviour
 
     IEnumerator FlashOnDamages()
     {
-        Debug.Log("FLASH");
         flashingCounter = Time.time + timeFlashing;
         bool flashing = false;
 

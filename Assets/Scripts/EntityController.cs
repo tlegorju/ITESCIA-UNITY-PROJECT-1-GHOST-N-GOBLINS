@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityController : MonoBehaviour
+public abstract class EntityController : MonoBehaviour
 {
     public event Action OnSpawn = delegate { },
                         OnMove = delegate { }, 
@@ -35,4 +35,8 @@ public class EntityController : MonoBehaviour
     {
         OnDies();
     }
+
+    public abstract void TakeDamages(int damage);
+
+    public abstract void Dies();
 }

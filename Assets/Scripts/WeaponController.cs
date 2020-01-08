@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    [SerializeField] float damages = 1.0f;
+    [SerializeField] int damages = 1;
+    public int Damages { get { return damages; } }
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public class WeaponController : MonoBehaviour
 
         if(other.gameObject.CompareTag("Ennemi"))
         {
-            other.gameObject.GetComponent<EnnemiController>().TakeDamages(damages);
+            other.gameObject.GetComponent<EntityController>().TakeDamages(damages);
         }
         DestroyWeapon();
     }

@@ -22,7 +22,8 @@ public class WalkingTowardsTargetBehavior : StateMachineBehaviour
         controller = animator.GetComponent<EnnemiController>();
         target = controller.Player;
 
-        updateCoroutine = controller.StartCoroutine(UpdateDirection());
+        if(target)
+            updateCoroutine = controller.StartCoroutine(UpdateDirection());
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

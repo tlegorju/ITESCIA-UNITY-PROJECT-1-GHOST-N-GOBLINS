@@ -58,26 +58,26 @@ public class SplineMover : MonoBehaviour
             if (IsVectorEqual(oTransform.position, m_spline.GetPoint(0), 0.01f))
             {
 
-                //StartCoroutine(MovePlatformForward());
+                StartCoroutine(MovePlatformForward());
                 
             }
         }
         else
         {
-           /* if (IsVectorEqual(oTransform.position, m_spline.GetPoint(1), 0.01f))
+           if (IsVectorEqual(oTransform.position, m_spline.GetPoint(1), 0.01f))
             {
                 // StopAllCoroutines();
                 Debug.Log("we arrived");
                 StartCoroutine(MovePlatformBackward());
-            }*/
+            }
             if (IsVectorEqual(oTransform.position, m_spline.GetPoint(0), 0.01f))
             {
 
-                //StartCoroutine(MovePlatformForward());
-                for (float i = 0f; i <= 1f; i += 0.1f)
+                StartCoroutine(MovePlatformForward());
+                /*for (float i = 0f; i <= 1f; i += 0.1f)
                 {
                     MovePlat(i);    
-                }
+                }*/
             }
         }
     }

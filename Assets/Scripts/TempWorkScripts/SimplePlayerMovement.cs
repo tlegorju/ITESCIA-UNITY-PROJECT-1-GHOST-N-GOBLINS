@@ -12,15 +12,21 @@ public class SimplePlayerMovement : MonoBehaviour
     private new Rigidbody rigidbody;
 
     private SimplePlayerInput playerInput;
-    //private float lastThrust = float.MinValue;
 
-    //public event Action<float> ThrustChanged = delegate { };
+    private bool facingRight = true;
+
+    private float squaredRigidbodyMass;
 
     private void Awake()
     {
         playerInput = GetComponent<SimplePlayerInput>();
         rigidbody = GetComponent<Rigidbody>();
 
+        squaredRigidbodyMass = rigidbody.mass * rigidbody.mass;
+    }
+
+    private void Start()
+    {
         playerInput.OnJump += Jump;
 
         SimplePlayerController playerController = GetComponent<SimplePlayerController>();
@@ -32,19 +38,20 @@ public class SimplePlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        /*if (lastThrust != playerInput.Vertical)
-            ThrustChanged(playerInput.Vertical);
+        UpdateDirection();
 
-        lastThrust = playerInput.Vertical;*/
+        rigidbody.MovePosition(rigidbody.position + Vector3.forward * playerInput.Horizontal * walkSpeed * Time.fixedDeltaTime);
+        
+        if (!IsGrounded())
+        {
+            rigidbody.AddForce(Physics.gravity * 3 * (squaredRigidbodyMass));
 
-        //rigidbody.MoveRotation(Quaternion.Euler(0, 180 * (playerInput.Horizontal), 0));
-
-        rigidbody.MovePosition(rigidbody.position + transform.forward * playerInput.Horizontal * walkSpeed * Time.fixedDeltaTime);
+        }
     }
 
     private void Jump()
     {
-        if(IsGrounded())
+        if (IsGrounded())
         {
             rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
@@ -52,7 +59,7 @@ public class SimplePlayerMovement : MonoBehaviour
 
     public bool IsGrounded()
     {
-        return !Physics.Raycast(transform.position, -Vector3.up);
+        return Physics.Raycast(transform.position, -Vector3.up, 0.5f);
     }
 
     private void ThrowPlayerBack()
@@ -60,5 +67,18 @@ public class SimplePlayerMovement : MonoBehaviour
         Vector3 force = Vector3.up - Vector3.forward;
         force = force.normalized * throwBackForce;
         rigidbody.AddForce(force, ForceMode.Impulse);
+    }
+
+    private void UpdateDirection()
+    {
+        if(playerInput.Horizontal < -0.1 && facingRight)
+        {
+            rigidbody.MoveRotation(Quaternion.Euler(0, 180, 0));
+        }
+        else if(playerInput.Horizontal > 0.1 && !facingRight)
+        {
+            rigidbody.MoveRotation(Quaternion.Euler(0, 0, 0));
+        }
+        facingRight = !facingRight;
     }
 }

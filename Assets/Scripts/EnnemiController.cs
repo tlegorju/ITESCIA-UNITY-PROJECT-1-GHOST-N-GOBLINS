@@ -13,6 +13,10 @@ public class EnnemiController : EntityController
     public float LifePoint { get { return lifePoint; } }
     [SerializeField] float damages = 1.0f;
 
+
+    [SerializeField] int nbPointsOnDeath = 100;
+
+
     protected virtual void Awake()
     {
         GameObject tmpPlayer = GameObject.FindGameObjectWithTag("Player");
@@ -39,7 +43,7 @@ public class EnnemiController : EntityController
         
     }
 
-    public void TakeDamages(float damages)
+    public override void TakeDamages(int damages)
     {
         if (damages <= 0)
             return;
@@ -54,13 +58,18 @@ public class EnnemiController : EntityController
         }
     }
 
-    private void Dies()
+    public override void Dies()
     {
         CallOnDies();
 
         animator.SetTrigger("Dies");
         GetComponent<Collider>().enabled = false;
         rigidbody.isKinematic = true;
+
+        ScoreManager tmpScoreManager = ScoreManager.Instance;
+        if (tmpScoreManager)
+            tmpScoreManager.AddScore(nbPointsOnDeath);
+
         Destroy(gameObject, 1.5f);
     }
 

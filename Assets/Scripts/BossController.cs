@@ -39,4 +39,12 @@ public class BossController : EnnemiController
             return targetPoints[currentTargetIndex].position;
         return Vector3.zero;
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<EntityController>().TakeDamages(1);
+        }
+    }
 }

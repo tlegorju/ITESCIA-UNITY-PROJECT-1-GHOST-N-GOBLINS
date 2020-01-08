@@ -38,11 +38,9 @@ public class PlayerArmorController : MonoBehaviour
 
     public void Unequip()
     {
-        Debug.Log("Unequip?");
         if (!armorEquipped)
             return;
 
-        Debug.Log("Unequip.");
         Physics.IgnoreLayerCollision(8, 12, false);
         for (int i=0; i< (int)BodyPart.LAST; i++)
         {

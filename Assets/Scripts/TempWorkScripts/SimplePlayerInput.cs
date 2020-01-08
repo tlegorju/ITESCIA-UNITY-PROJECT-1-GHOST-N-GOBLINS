@@ -8,7 +8,7 @@ using UnityEngine;
 public class SimplePlayerInput : MonoBehaviour
 {
     public float Horizontal { get; private set; }
-    public float Vertical { get; private set; }
+    //public float Vertical { get; private set; }
     public bool Jump { get; private set; }
     public bool ThrowWeapon{ get; private set; }
 
@@ -25,10 +25,11 @@ public class SimplePlayerInput : MonoBehaviour
     void Update()
     {
         Horizontal = Input.GetAxis("Horizontal");
-        Vertical = Input.GetAxis("Vertical");
+        //Vertical = Input.GetAxis("Vertical");
         Jump = Input.GetButtonDown("Jump");
-        if (Jump)
-            OnJump();
+        if (Jump) {
+            OnJump(); 
+        }
         ThrowWeapon = Input.GetButtonDown("Fire1");
         if (ThrowWeapon)
             OnThrow();
