@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     private GameState gameState = GameState.GameIdle;
 
     private GameObject playerRef;
+    public GameObject PlayerRef { get { return playerRef; } }
 
     private void Awake()
     {

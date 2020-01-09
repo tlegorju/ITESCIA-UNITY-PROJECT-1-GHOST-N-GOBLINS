@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponController : MonoBehaviour
+public abstract class WeaponController : MonoBehaviour
 {
     [SerializeField] int damages = 1;
     public int Damages { get { return damages; } }
+    [SerializeField] protected float weaponDuration = 2.0f;
+    [SerializeField] protected float translationSpeed = 300f;
+
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        Invoke("DestroyWeapon", 2.0f);
+        Invoke("DestroyWeapon", weaponDuration);
     }
 
     // Update is called once per frame
@@ -18,17 +21,7 @@ public class WeaponController : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-            return;
-
-        if(other.gameObject.CompareTag("Ennemi"))
-        {
-            other.gameObject.GetComponent<EntityController>().TakeDamages(damages);
-        }
-        DestroyWeapon();
-    }
+    
 
     protected void DestroyWeapon()
     {

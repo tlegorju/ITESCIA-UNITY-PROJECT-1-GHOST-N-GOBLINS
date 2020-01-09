@@ -30,6 +30,7 @@ public class BossFlyTowardsPlayerBehaviour : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetInteger("CurrentTargetIndex", 0);
+        animator.SetBool("ThrowFireballs", true);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

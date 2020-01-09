@@ -2,32 +2,80 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossController : EnnemiController
+public class BossController : EntityController
 {
+    private new Rigidbody rigidbody;
+    private Animator animator;
+
+    [SerializeField] private float lifePoint = 10;
     [SerializeField] float lifePointToStage2 = 5;
 
     [SerializeField] Transform[] targetPoints;
 
-    protected override void Awake()
+    private Transform playerRef;
+
+    [SerializeField] float rotationSpeed = 10.0f;
+
+
+    [SerializeField] int nbPointsOnDeath = 50000;
+
+    private void Awake()
     {
-        base.Awake();
-        base.OnHurted += CheckGoToStage2;
+        OnHurted += CheckGoToStage2;
+
+        rigidbody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Animator>().SetInteger("LastTargetIndex", targetPoints.Length-1);
+        if (GameManager.Instance)
+            playerRef = GameManager.Instance.PlayerRef.transform;
+        else
+            playerRef = GameObject.FindGameObjectWithTag("Player").transform;
+
+        animator.SetInteger("LastTargetIndex", targetPoints.Length-1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        FacePlayer();
+    }
+
+
+    public override void TakeDamages(int damages)
+    {
+        if (damages <= 0)
+            return;
+        lifePoint -= damages;
+
+        if (lifePoint <= 0)
+            Dies();
+        else
+        {
+            CallOnHurted();
+        }
+    }
+
+    public override void Dies()
+    {
+        CallOnDies();
+
+        animator.SetTrigger("Dies");
+        GetComponent<Collider>().enabled = false;
+        rigidbody.isKinematic = true;
+
+        ScoreManager tmpScoreManager = ScoreManager.Instance;
+        if (tmpScoreManager)
+            tmpScoreManager.AddScore(nbPointsOnDeath);
+
+        Destroy(gameObject, 1.5f);
     }
 
     private void CheckGoToStage2()
     {
-        if(LifePoint <= lifePointToStage2)
+        if(lifePoint <= lifePointToStage2)
         {
             GetComponent<Animator>().SetTrigger("Stage2");
         }
@@ -44,7 +92,21 @@ public class BossController : EnnemiController
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<EntityController>().TakeDamages(1);
+            EntityController tmpEntity = other.gameObject.GetComponent<EntityController>();
+            if(tmpEntity)
+                tmpEntity.TakeDamages(1);
         }
+    }
+
+    private void FacePlayer()
+    {
+        if (playerRef == null)
+            return;
+
+        float targetRotation=0;
+        if (playerRef.position.z < transform.position.z)
+            targetRotation = 180;
+
+        rigidbody.MoveRotation(Quaternion.Lerp(rigidbody.rotation, Quaternion.Euler(0, targetRotation, 0), Time.deltaTime * rotationSpeed));
     }
 }

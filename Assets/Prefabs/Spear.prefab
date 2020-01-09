@@ -73,10 +73,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6203293819400212798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e91db802666ea844db700ba38bf961a1, type: 3}
+  m_Script: {fileID: 11500000, guid: d43cfb13c2d337f409832be3bb97c3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damages: 1
+  weaponDuration: 2
+  translationSpeed: 300
 --- !u!1001 &7716307363990064927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84,6 +86,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 636229931399365476}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: bce228e14410fa1419859b983504bf3a,
+        type: 3}
+      propertyPath: m_Name
+      value: Lance
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bce228e14410fa1419859b983504bf3a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -153,11 +160,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 11.537643
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: bce228e14410fa1419859b983504bf3a,
-        type: 3}
-      propertyPath: m_Name
-      value: Lance
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bce228e14410fa1419859b983504bf3a, type: 3}
