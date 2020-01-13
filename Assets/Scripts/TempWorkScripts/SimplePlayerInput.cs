@@ -8,12 +8,15 @@ using UnityEngine;
 public class SimplePlayerInput : MonoBehaviour
 {
     public float Horizontal { get; private set; }
-    //public float Vertical { get; private set; }
+    public float Vertical { get; private set; }
     public bool Jump { get; private set; }
-    public bool ThrowWeapon{ get; private set; }
+    public bool ThrowWeapon { get; private set; }
+
+    public bool CanClimb { get; set; }
 
     public event Action OnThrow = delegate { };
     public event Action OnJump = delegate { };
+    public event Action OnClimbLadder = delegate { };
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +28,7 @@ public class SimplePlayerInput : MonoBehaviour
     void Update()
     {
         Horizontal = Input.GetAxis("Horizontal");
-        //Vertical = Input.GetAxis("Vertical");
+        Vertical = Input.GetAxis("Vertical");
         Jump = Input.GetButtonDown("Jump");
         if (Jump) {
             OnJump(); 
@@ -33,5 +36,10 @@ public class SimplePlayerInput : MonoBehaviour
         ThrowWeapon = Input.GetButtonDown("Fire1");
         if (ThrowWeapon)
             OnThrow();
+        if (CanClimb && Vertical != 0)
+        {
+            OnClimbLadder();
+        }
+        
     }
 }

@@ -28,11 +28,13 @@ public class SimplePlayerMovement : MonoBehaviour
     private void Start()
     {
         playerInput.OnJump += Jump;
-
+        playerInput.OnClimbLadder += ClimbLadder;
         SimplePlayerController playerController = GetComponent<SimplePlayerController>();
         if (playerController)
             playerController.OnHurted += ThrowPlayerBack;
     }
+
+    
 
 
     // Update is called once per frame
@@ -55,6 +57,16 @@ public class SimplePlayerMovement : MonoBehaviour
         {
             rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+    }
+    private void ClimbLadder()
+    {
+        if (!IsGrounded())
+        {
+            rigidbody.isKinematic = true;
+        }
+
+        Debug.Log("VERTICAL is" + playerInput.Vertical);
+        transform.Translate(Vector3.up * playerInput.Vertical * walkSpeed*2 * Time.fixedDeltaTime);
     }
 
     public bool IsGrounded()
