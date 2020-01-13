@@ -41,9 +41,10 @@ public class SplineMover : MonoBehaviour
         {
 
             oTransform.position = Vector3.MoveTowards(oTransform.position, m_spline.GetPoint(splinePointPosition), Time.deltaTime);
+            
         }
-
         yield return null;
+
 
     }
     private void Update()
@@ -64,7 +65,7 @@ public class SplineMover : MonoBehaviour
         }
         else
         {
-           if (IsVectorEqual(oTransform.position, m_spline.GetPoint(1), 0.01f))
+           if (IsVectorEqual(oTransform.position, m_spline.GetPoint(1), 0.1f))
             {
                 // StopAllCoroutines();
                 Debug.Log("we arrived");
