@@ -17,6 +17,16 @@ public class SimplePlayerMovement : MonoBehaviour
 
     private float squaredRigidbodyMass;
 
+
+    public event Action OnJump = delegate { };
+    public event Action OnLand = delegate { };
+    private bool wasGrounded = false;
+
+    public event Action OnStartRunning = delegate { };
+    public event Action OnStopRunning = delegate { };
+    private float previousVelocity = 0;
+
+
     private void Awake()
     {
         playerInput = GetComponent<SimplePlayerInput>();
@@ -40,12 +50,19 @@ public class SimplePlayerMovement : MonoBehaviour
     {
         UpdateDirection();
 
-        rigidbody.MovePosition(rigidbody.position + Vector3.forward * playerInput.Horizontal * walkSpeed * Time.fixedDeltaTime);
+        float velocity = playerInput.Horizontal * walkSpeed * Time.fixedDeltaTime;
+        rigidbody.MovePosition(rigidbody.position + Vector3.forward * velocity);
+        UpdateVelocity(velocity);
         
         if (!IsGrounded())
         {
             rigidbody.AddForce(Physics.gravity * 3 * (squaredRigidbodyMass));
 
+        }
+        else if(!wasGrounded)
+        {
+            OnLand();
+            wasGrounded = true;
         }
     }
 
@@ -54,6 +71,8 @@ public class SimplePlayerMovement : MonoBehaviour
         if (IsGrounded())
         {
             rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            OnJump();
+            wasGrounded = false;
         }
     }
 
@@ -80,5 +99,18 @@ public class SimplePlayerMovement : MonoBehaviour
             rigidbody.MoveRotation(Quaternion.Euler(0, 0, 0));
         }
         facingRight = !facingRight;
+    }
+
+    private void UpdateVelocity(float velocity)
+    {
+        if(Mathf.Abs(velocity) < .1f && Mathf.Abs(previousVelocity) > .1f)
+        {
+            OnStopRunning();
+        }
+        else if(Mathf.Abs(velocity) > .1f && Mathf.Abs(previousVelocity) < .1f)
+        {
+            OnStartRunning();
+        }
+        previousVelocity = velocity;
     }
 }

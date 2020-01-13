@@ -1,9 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ArmorController : MonoBehaviour
 {
+    public event Action OnEquip = delegate { };
+    public event Action OnUnequip = delegate { };
+
     public void AttachArmor(Transform parent)
     {
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -15,6 +19,8 @@ public class ArmorController : MonoBehaviour
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
         }
+
+        OnEquip();
     }
 
     public void DetachArmor(Vector3 impulse)
@@ -28,6 +34,8 @@ public class ArmorController : MonoBehaviour
             rb.AddForce(impulse);
         }
         StartCoroutine(FlashArmor());
+
+        OnUnequip();
     }
 
     IEnumerator FlashArmor()
