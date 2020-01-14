@@ -44,7 +44,7 @@ public class SimplePlayerController : EntityController
     public override void Dies()
     {
         CallOnDies();
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
 

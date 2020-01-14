@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,9 @@ public class PlayerArmorController : MonoBehaviour
 
     private bool armorEquipped = false;
     public bool ArmorEquipped { get { return armorEquipped; } }
+
+    public event Action OnEquip = delegate { };
+    public event Action OnUnequip = delegate { };
 
     private void Awake()
     {
@@ -45,9 +49,10 @@ public class PlayerArmorController : MonoBehaviour
         for (int i=0; i< (int)BodyPart.LAST; i++)
         {
             if(armorRef[i] != null)
-                armorRef[i].DetachArmor(Vector3.up * 400 + Vector3.forward * Random.Range(-200, 200));
+                armorRef[i].DetachArmor(Vector3.up * 400 + Vector3.forward * UnityEngine.Random.Range(-200, 200));
         }
         armorEquipped = false;
+        OnUnequip();
     }
 
     public void Equip()
@@ -62,5 +67,6 @@ public class PlayerArmorController : MonoBehaviour
                 armorRef[i].AttachArmor(slotArray[i]);
         }
         armorEquipped = true;
+        OnEquip();
     }
 }

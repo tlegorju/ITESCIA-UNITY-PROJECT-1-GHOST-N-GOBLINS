@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b5c792eaa783748b21fde3e9431a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  localPosition: {x: -0.0015, y: 0.0164, z: 0.0045}
+  localRotation: {x: 13.345, y: -6.909, z: 174.07, w: 0}
+  localScale: {x: 0.09, y: 0.07, z: 0.09}
 --- !u!54 &77517781627621727
 Rigidbody:
   m_ObjectHideFlags: 0

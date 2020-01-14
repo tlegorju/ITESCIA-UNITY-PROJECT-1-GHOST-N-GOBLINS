@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6876897479166553557}
   - component: {fileID: 483083137}
   - component: {fileID: 483083136}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlatformModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3065188659250477822}
   - component: {fileID: 3860774221241715301}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,9 +181,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8635609705635250450}
   - component: {fileID: 7932355611518299408}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

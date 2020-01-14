@@ -41,7 +41,10 @@ public class SimplePlayerMovement : MonoBehaviour
         playerInput.OnClimbLadder += ClimbLadder;
         SimplePlayerController playerController = GetComponent<SimplePlayerController>();
         if (playerController)
+        {
             playerController.OnHurted += ThrowPlayerBack;
+            playerController.OnDies += DisableScript;
+        }
     }
 
     
@@ -70,6 +73,7 @@ public class SimplePlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        Debug.Log(IsGrounded());
         if (IsGrounded())
         {
             rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -90,7 +94,9 @@ public class SimplePlayerMovement : MonoBehaviour
 
     public bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, 0.5f);
+        Vector3 origin = new Vector3(transform.position.x, transform.position.y + .2f, transform.position.z);
+        Debug.DrawRay(origin, -Vector3.up, Color.red, 5.0f);
+        return Physics.Raycast(origin, -Vector3.up, 0.5f);
     }
 
     private void ThrowPlayerBack()
@@ -124,5 +130,10 @@ public class SimplePlayerMovement : MonoBehaviour
             OnStartRunning();
         }
         previousVelocity = velocity;
+    }
+
+    private void DisableScript()
+    {
+        this.enabled = false;
     }
 }

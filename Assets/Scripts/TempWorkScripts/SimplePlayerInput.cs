@@ -21,7 +21,11 @@ public class SimplePlayerInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SimplePlayerController playerController = GetComponent<SimplePlayerController>();
+        if(playerController)
+        {
+            playerController.OnDies += DisableScript;
+        }
     }
 
     // Update is called once per frame
@@ -41,5 +45,10 @@ public class SimplePlayerInput : MonoBehaviour
             OnClimbLadder();
         }
         
+    }
+
+    private void DisableScript()
+    {
+        this.enabled = false;
     }
 }

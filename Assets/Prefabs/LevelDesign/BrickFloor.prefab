@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9105155624858222925}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: transform46
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8503620248726501661}
   - component: {fileID: 8340738939734434282}
   - component: {fileID: 3308134552227135048}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube86
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,9 +132,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1217843053317723450}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrickFloor
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2012498315386861749}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: transform45
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1092602001394198701}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube37
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8751021500036652860}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube39
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3752202976126955394}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube38
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1618537199249363177}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: transform44
   m_TagString: Untagged
   m_Icon: {fileID: 0}

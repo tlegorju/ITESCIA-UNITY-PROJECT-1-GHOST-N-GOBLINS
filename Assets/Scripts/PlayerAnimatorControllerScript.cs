@@ -21,7 +21,7 @@ public class PlayerAnimatorControllerScript : MonoBehaviour
             entityController.OnHurted += TriggerHurted;
             entityController.OnDies += TriggerDeath;
         }
-        ArmorController armorController = GetComponent<ArmorController>();
+        PlayerArmorController armorController = GetComponent<PlayerArmorController>();
         if(armorController)
         {
             armorController.OnEquip += OnArmorEquipped;

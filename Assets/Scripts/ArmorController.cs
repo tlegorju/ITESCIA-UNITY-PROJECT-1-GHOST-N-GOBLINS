@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class ArmorController : MonoBehaviour
 {
-    public event Action OnEquip = delegate { };
-    public event Action OnUnequip = delegate { };
+    [SerializeField] Vector3 localPosition;
+    [SerializeField] Quaternion localRotation;
+    [SerializeField] Vector3 localScale;
+
+    public bool displayRot = false;
 
     public void AttachArmor(Transform parent)
     {
@@ -15,12 +18,12 @@ public class ArmorController : MonoBehaviour
         {
             //Change layer collision
             rb.isKinematic = true;
-            transform.parent = parent;
-            transform.localPosition = Vector3.zero;
-            transform.localRotation = Quaternion.identity;
-        }
 
-        OnEquip();
+            transform.parent = parent;
+            transform.localPosition = localPosition;
+            transform.localRotation = /*Quaternion.Euler(*/localRotation;
+            transform.localScale = localScale;
+        }
     }
 
     public void DetachArmor(Vector3 impulse)
@@ -34,8 +37,6 @@ public class ArmorController : MonoBehaviour
             rb.AddForce(impulse);
         }
         StartCoroutine(FlashArmor());
-
-        OnUnequip();
     }
 
     IEnumerator FlashArmor()
