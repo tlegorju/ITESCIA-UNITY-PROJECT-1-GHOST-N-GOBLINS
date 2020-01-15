@@ -26,6 +26,13 @@ public class SimplePlayerMovement : MonoBehaviour
     public event Action OnStopRunning = delegate { };
     private float previousVelocity = 0;
 
+    public event Action OnCrouch = delegate { };
+    public event Action OnStandUp = delegate { };
+    private bool isStanding = true;
+
+    [SerializeField] CapsuleCollider standingCapsule;
+    [SerializeField] CapsuleCollider crouchedCapsule;
+
 
     private void Awake()
     {
@@ -33,12 +40,18 @@ public class SimplePlayerMovement : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
 
         squaredRigidbodyMass = rigidbody.mass * rigidbody.mass;
+
+        standingCapsule.enabled = true;
+        crouchedCapsule.enabled = false;
     }
 
     private void Start()
     {
         playerInput.OnJump += Jump;
         playerInput.OnClimbLadder += ClimbLadder;
+        playerInput.OnCrouch += OnCrouch;
+        playerInput.OnStandUp += OnStandUp;
+
         SimplePlayerController playerController = GetComponent<SimplePlayerController>();
         if (playerController)
         {
@@ -62,7 +75,7 @@ public class SimplePlayerMovement : MonoBehaviour
         if (!IsGrounded())
         {
             rigidbody.AddForce(Physics.gravity * 3 * (squaredRigidbodyMass));
-
+            isStanding = true;
         }
         else if(!wasGrounded)
         {
@@ -88,14 +101,13 @@ public class SimplePlayerMovement : MonoBehaviour
             rigidbody.isKinematic = true;
         }
 
-        Debug.Log("VERTICAL is" + playerInput.Vertical);
         transform.Translate(Vector3.up * playerInput.Vertical * walkSpeed*2 * Time.fixedDeltaTime);
     }
 
     public bool IsGrounded()
     {
         Vector3 origin = new Vector3(transform.position.x, transform.position.y + .2f, transform.position.z);
-        Debug.DrawRay(origin, -Vector3.up, Color.red, 5.0f);
+        Debug.DrawRay(origin, -Vector3.up, Color.red, .1f);
         return Physics.Raycast(origin, -Vector3.up, 0.5f);
     }
 
@@ -135,5 +147,27 @@ public class SimplePlayerMovement : MonoBehaviour
     private void DisableScript()
     {
         this.enabled = false;
+    }
+
+    private void Crouch()
+    {
+        if(isStanding && IsGrounded())
+        {
+            crouchedCapsule.enabled = true;
+            standingCapsule.enabled = false;
+            OnCrouch();
+            isStanding = false;
+        }
+    }
+
+    private void StandUp()
+    {
+        if(!isStanding && IsGrounded())
+        {
+            crouchedCapsule.enabled = false;
+            standingCapsule.enabled = true;
+            OnStandUp();
+            isStanding = true;
+        }
     }
 }

@@ -17,6 +17,8 @@ public class SimplePlayerInput : MonoBehaviour
     public event Action OnThrow = delegate { };
     public event Action OnJump = delegate { };
     public event Action OnClimbLadder = delegate { };
+    public event Action OnCrouch = delegate { };
+    public event Action OnStandUp = delegate { };
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +46,11 @@ public class SimplePlayerInput : MonoBehaviour
         {
             OnClimbLadder();
         }
-        
+
+        if (Input.GetButton("Crouch"))
+            OnCrouch();
+        else if (Input.GetButtonUp("Crouch"))
+            OnStandUp();        
     }
 
     private void DisableScript()

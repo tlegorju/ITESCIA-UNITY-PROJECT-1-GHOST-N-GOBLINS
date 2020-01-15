@@ -57,8 +57,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
-        Debug.Log(IsGrounded());
         if (Input.GetButtonDown("Jump") && IsGrounded())
 
         Debug.DrawRay(transform.position,new Vector3(0,-0.5f,0),Color.red);
@@ -109,7 +107,7 @@ public class PlayerController : MonoBehaviour
         if (!IsGrounded())
         {
             m_Rigidbody.AddForce(Physics.gravity * 2 * (m_Rigidbody.mass * m_Rigidbody.mass));
-
+            isStanding = true;
         }
 
         UpdateFacingDirection();

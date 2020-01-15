@@ -5,6 +5,7 @@ using UnityEngine;
 public class SimplePlayerWeaponController : MonoBehaviour
 {
     [SerializeField] private GameObject weaponPrefab;
+    public GameObject WeaponPrefab { get { return weaponPrefab; } set { weaponPrefab = value; } }
     [SerializeField] private Transform throwPoint;
     [SerializeField] private float throwForce = 300f;
 

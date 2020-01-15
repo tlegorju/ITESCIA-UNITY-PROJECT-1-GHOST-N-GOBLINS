@@ -34,6 +34,8 @@ public class PlayerAnimatorControllerScript : MonoBehaviour
             playerMovement.OnLand += OnLand;
             playerMovement.OnStartRunning += OnRun;
             playerMovement.OnStopRunning += OnStopRunning;
+            playerMovement.OnCrouch += OnCrouch;
+            playerMovement.OnStandUp += OnStandUp;
         }
         SimplePlayerInput playerInput = GetComponent<SimplePlayerInput>();
         if(playerInput)
@@ -92,5 +94,15 @@ public class PlayerAnimatorControllerScript : MonoBehaviour
     private void OnStopRunning()
     {
         animator.SetBool("IsRunning", false);
+    }
+
+    private void OnCrouch()
+    {
+        animator.SetBool("Crouched", true);
+    }
+
+    private void OnStandUp()
+    {
+        animator.SetBool("Crouched", false);
     }
 }
