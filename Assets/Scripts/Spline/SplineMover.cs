@@ -71,7 +71,7 @@ public class SplineMover : MonoBehaviour
                 Debug.Log("we arrived");
                 StartCoroutine(MovePlatformBackward());
             }
-            if (IsVectorEqual(oTransform.position, m_spline.GetPoint(0), 0.01f))
+            if (IsVectorEqual(oTransform.position, m_spline.GetPoint(0), 0.1f))
             {
 
                 StartCoroutine(MovePlatformForward());
