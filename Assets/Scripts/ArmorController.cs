@@ -6,7 +6,7 @@ using UnityEngine;
 public class ArmorController : MonoBehaviour
 {
     [SerializeField] Vector3 localPosition;
-    [SerializeField] Quaternion localRotation;
+    [SerializeField] Vector3 localRotation;
     [SerializeField] Vector3 localScale;
 
     public bool displayRot = false;
@@ -21,7 +21,7 @@ public class ArmorController : MonoBehaviour
 
             transform.parent = parent;
             transform.localPosition = localPosition;
-            transform.localRotation = /*Quaternion.Euler(*/localRotation;
+            transform.localRotation = Quaternion.Euler(localRotation);
             transform.localScale = localScale;
         }
     }
