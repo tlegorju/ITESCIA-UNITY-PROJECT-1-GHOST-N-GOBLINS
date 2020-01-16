@@ -87,7 +87,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4032153992476938345}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000071506496, y: 0.36821163, z: -0.0002443552}
+  m_LocalPosition: {x: -0.009, y: 0.013, z: -0.0002443552}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8237533879268310493}
@@ -168,7 +168,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4902943022945046478}
   m_LocalRotation: {x: 0, y: 0, z: -0.23225726, w: 0.9726544}
-  m_LocalPosition: {x: 3.1366258, y: -0.3673644, z: 15.310133}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 2100633527765922344}
@@ -204,10 +204,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.0745312
-  m_Height: 0.43719348
+  m_Radius: 0.07579524
+  m_Height: 0.45495614
   m_Direction: 1
-  m_Center: {x: 0.00030016302, y: 0.37739167, z: 0}
+  m_Center: {x: -0.009470841, y: 0.0383116, z: 0}
 --- !u!114 &3975321287064807659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
   damages: 1
   weaponDuration: 2
   translationSpeed: 300
-  throwSpeed: 10
-  rotateSpeed: 15
+  throwSpeed: 30
+  rotateSpeed: 45
 --- !u!1 &6307861781984020686
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,12 +301,12 @@ PrefabInstance:
     - target: {fileID: 8488761294891392969, guid: 1f30434b352810b47bebfd9dd006f7b6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.001
+      value: -0.021
       objectReference: {fileID: 0}
     - target: {fileID: 8488761294891392969, guid: 1f30434b352810b47bebfd9dd006f7b6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.437
+      value: 0.144
       objectReference: {fileID: 0}
     - target: {fileID: 8488761294891392969, guid: 1f30434b352810b47bebfd9dd006f7b6,
         type: 3}

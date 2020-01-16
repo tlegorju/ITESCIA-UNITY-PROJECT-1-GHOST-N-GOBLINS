@@ -76,14 +76,15 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0.0f;
+        Debug.Log("pause");
+        Time.timeScale = 0.01f;
         OnGamePaused();
         gameState = GameState.GamePaused;
     }
 
     public void GameOver()
     {
-        Time.timeScale = 0.0f;
+        Time.timeScale = 0.01f;
         OnGameOver();
         gameState = GameState.GameStopped;
     }
@@ -94,6 +95,6 @@ public class GameManager : MonoBehaviour
         gameState = GameState.GameStopped;
 
         //Temporary
-        Application.Quit();
+        //Application.Quit();
     }
 }

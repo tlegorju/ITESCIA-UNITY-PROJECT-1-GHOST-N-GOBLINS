@@ -45,6 +45,7 @@ public class UIManager : MonoBehaviour
     private void ShowGameOver()
     {
         if (gameOverPanel != null)
-            gameOverPanel.SetActive(true);
+            Debug.Log("Game over");
+            //gameOverPanel.SetActive(true);
     }
 }
