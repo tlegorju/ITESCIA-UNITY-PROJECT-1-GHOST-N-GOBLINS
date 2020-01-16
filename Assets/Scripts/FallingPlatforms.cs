@@ -46,7 +46,7 @@ public class FallingPlatforms : MonoBehaviour
 
     IEnumerator ResetPlatform()
     {
-        yield return new WaitForSeconds(timeBeforeActivation);
+        yield return new WaitForSeconds(timeBeforeActivation+3);
         Debug.LogError("ResetPlatform");
         m_Rigibody.isKinematic = true;
         m_Rigibody.useGravity = false;
@@ -62,10 +62,10 @@ public class FallingPlatforms : MonoBehaviour
     private void FixedUpdate()
     {
         Debug.Log(IsAboveGround());
-        if (!IsAboveGround())
-        {
+       // if (!IsAboveGround())
+       // {
            
             StartCoroutine(ResetPlatform());
-        }
+        //}
     }
 }
