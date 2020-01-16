@@ -30,11 +30,20 @@ public class FallingPlatforms : MonoBehaviour
             StartCoroutine(ActivatePlatform());
             StartCoroutine(ResetPlatform());
         }
-      
-        
+        StartCoroutine(ResetPlatform());
+
     }
 
-    
+    private void OnCollisionExit(Collision collision)
+    {
+
+        if (collision.gameObject.layer.Equals(9))
+        {
+
+            StartCoroutine(ResetPlatform());
+        }
+
+    }
 
     IEnumerator ActivatePlatform()
     {
@@ -66,11 +75,15 @@ public class FallingPlatforms : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Debug.Log(IsAboveGround());
+       // Debug.Log(IsAboveGround());
        // if (!IsAboveGround())
        // {
            
+<<<<<<< HEAD
             //StartCoroutine(ResetPlatform());
+=======
+           
+>>>>>>> 27a93d140064e117dd6494974b5adde025a37748
         //}
     }
 }
