@@ -86,7 +86,6 @@ public class SimplePlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log(IsGrounded());
         if (IsGrounded())
         {
             rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);

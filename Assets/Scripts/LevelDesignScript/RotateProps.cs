@@ -8,6 +8,6 @@ public class RotateProps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Rotate(new Vector3(0,0,rotateSpeed*Time.deltaTime));
+        this.transform.Rotate(new Vector3(rotateSpeed * Time.deltaTime, 0, 0));
     }
 }

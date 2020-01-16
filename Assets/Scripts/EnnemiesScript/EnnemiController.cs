@@ -82,6 +82,14 @@ public class EnnemiController : EntityController
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            CallOnAttack();
+        }
+    }
+
     /*public void MoveTowardsPosition(Vector3 targetPosition)
     {
         Vector3 direction = (Vector3)(targetPosition - rigidbody.position).normalized;

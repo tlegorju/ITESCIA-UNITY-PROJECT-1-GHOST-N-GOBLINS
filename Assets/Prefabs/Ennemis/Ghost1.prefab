@@ -88,6 +88,7 @@ MonoBehaviour:
   player: {fileID: 0}
   lifePoint: 2
   damages: 1
+  nbPointsOnDeath: 100
 --- !u!135 &967300161223802324
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -96,10 +97,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5480647600829200711}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.02
+  m_Radius: 1.6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &9051497259863006376
 MonoBehaviour:
@@ -299,17 +300,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d7545db993ca54543ba3e739cf223642,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d7545db993ca54543ba3e739cf223642,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d7545db993ca54543ba3e739cf223642,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -2688412636556908390, guid: d7545db993ca54543ba3e739cf223642,
         type: 3}

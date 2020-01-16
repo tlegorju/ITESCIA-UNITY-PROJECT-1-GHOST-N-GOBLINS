@@ -78,12 +78,8 @@ public class FallingPlatforms : MonoBehaviour
        // Debug.Log(IsAboveGround());
        // if (!IsAboveGround())
        // {
-           
-<<<<<<< HEAD
             //StartCoroutine(ResetPlatform());
-=======
-           
->>>>>>> 27a93d140064e117dd6494974b5adde025a37748
+
         //}
     }
 }

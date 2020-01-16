@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5207754698854485953}
   - component: {fileID: 4049368451540400633}
   m_Layer: 11
-  m_Name: Weapon
+  m_Name: Spear
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damages: 1
   weaponDuration: 2
-  translationSpeed: 300
+  translationSpeed: 100
 --- !u!1001 &7716307363990064927
 PrefabInstance:
   m_ObjectHideFlags: 0

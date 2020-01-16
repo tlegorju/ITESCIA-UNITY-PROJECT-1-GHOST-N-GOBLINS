@@ -15,8 +15,8 @@ public class EnnemiSpawner : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            if (other.gameObject.transform.position.z >= transform.position.z)
-                return;
+            /*if (other.gameObject.transform.position.z >= transform.position.z)
+                return;*/
 
             if (ennemiSpawned)
                 return;

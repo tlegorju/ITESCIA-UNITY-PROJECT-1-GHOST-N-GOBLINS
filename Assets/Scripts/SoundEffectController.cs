@@ -27,8 +27,8 @@ public class SoundEffectController : MonoBehaviour
 
     private void PlaySpawn()
     {
-        /*if (spawnClips.Length <= 0 || source.isPlaying)
-            return;*/
+        if (spawnClips.Length <= 0)
+            return;
         source.clip = spawnClips[Random.Range(0, spawnClips.Length)];
         source.Play();
     }
