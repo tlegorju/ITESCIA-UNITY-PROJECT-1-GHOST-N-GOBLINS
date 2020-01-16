@@ -77,7 +77,7 @@ public class EnnemiController : EntityController
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            //collision.gameObject.GetComponent<PlayerController>().TakeDamages();
+            collision.gameObject.GetComponent<SimplePlayerController>().TakeDamages(1);
             CallOnAttack();
         }
     }
@@ -86,6 +86,7 @@ public class EnnemiController : EntityController
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            other.gameObject.GetComponent<SimplePlayerController>().TakeDamages(1);
             CallOnAttack();
         }
     }

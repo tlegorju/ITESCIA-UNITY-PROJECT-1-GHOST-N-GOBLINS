@@ -15,10 +15,10 @@ public class SimplePlayerController : EntityController
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Ennemi"))
+        /*if(collision.gameObject.CompareTag("Ennemi"))
         {
             TakeDamages(1);
-        }
+        }*/
     }
 
     public override void TakeDamages(int damage)

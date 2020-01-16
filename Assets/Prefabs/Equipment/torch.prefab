@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9038532422447249902}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: transform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 79361526366045249}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pSphere1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 3328599061898919505}
   - component: {fileID: 2891903472336936007}
   - component: {fileID: 5310571413987632849}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Torch_Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,9 +153,9 @@ GameObject:
   - component: {fileID: 3975321287064807658}
   - component: {fileID: 3975321287064807660}
   - component: {fileID: 3975321287064807659}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: torch
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,8 +204,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.07579524
-  m_Height: 0.45495614
+  m_Radius: 0.12
+  m_Height: 0.6
   m_Direction: 1
   m_Center: {x: -0.009470841, y: 0.0383116, z: 0}
 --- !u!114 &3975321287064807659
@@ -220,11 +220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90442d3c957b27c4fb6847970be3de71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damages: 1
+  damages: 3
   weaponDuration: 2
   translationSpeed: 300
-  throwSpeed: 30
-  rotateSpeed: 45
+  throwSpeed: 12
+  rotateSpeed: 30
 --- !u!1 &6307861781984020686
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2100633527765922344}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCylinder8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6765822505858018604}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: transform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,6 +297,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PS_Torch
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492171397248250083, guid: 1f30434b352810b47bebfd9dd006f7b6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8488761294891392969, guid: 1f30434b352810b47bebfd9dd006f7b6,
         type: 3}
@@ -352,6 +357,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492641485768311897, guid: 1f30434b352810b47bebfd9dd006f7b6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491811940476997245, guid: 1f30434b352810b47bebfd9dd006f7b6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491712754696065317, guid: 1f30434b352810b47bebfd9dd006f7b6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491575908824343003, guid: 1f30434b352810b47bebfd9dd006f7b6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f30434b352810b47bebfd9dd006f7b6, type: 3}

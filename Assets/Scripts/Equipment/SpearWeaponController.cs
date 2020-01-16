@@ -18,15 +18,4 @@ public class SpearWeaponController : WeaponController
         
     }
 
-    protected virtual void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-            return;
-
-        if (other.gameObject.CompareTag("Ennemi"))
-        {
-            other.gameObject.GetComponent<EntityController>().TakeDamages(Damages);
-        }
-        DestroyWeapon();
-    }
 }
