@@ -26,11 +26,20 @@ public class FallingPlatforms : MonoBehaviour
         {
             StartCoroutine(ActivatePlatform());
         }
-      
-        
+        StartCoroutine(ResetPlatform());
+
     }
 
-    
+    private void OnCollisionExit(Collision collision)
+    {
+
+        if (collision.gameObject.layer.Equals(9))
+        {
+
+            StartCoroutine(ResetPlatform());
+        }
+
+    }
 
     IEnumerator ActivatePlatform()
     {
@@ -61,11 +70,11 @@ public class FallingPlatforms : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Debug.Log(IsAboveGround());
+       // Debug.Log(IsAboveGround());
        // if (!IsAboveGround())
        // {
            
-            StartCoroutine(ResetPlatform());
+           
         //}
     }
 }
