@@ -7,10 +7,13 @@ public class FallingPlatforms : MonoBehaviour
 {
     [SerializeField] float timeBeforeActivation;
     [SerializeField] float fallSpeed;
+    [SerializeField] float resetTime = 10.0f;
 
     Vector3 originPosition;
     Transform m_transform;
     Rigidbody m_Rigibody;
+
+    bool falling = false;
 
     void Awake()
     {
@@ -22,9 +25,10 @@ public class FallingPlatforms : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.layer.Equals(9))
+        if (collision.gameObject.layer.Equals(9) && !falling)
         {
             StartCoroutine(ActivatePlatform());
+            StartCoroutine(ResetPlatform());
         }
       
         
@@ -34,25 +38,26 @@ public class FallingPlatforms : MonoBehaviour
 
     IEnumerator ActivatePlatform()
     {
-        
+        falling = true;
         yield return new WaitForSeconds(timeBeforeActivation);
         Debug.Log("Activation");
         m_Rigibody.useGravity = true;
         m_Rigibody.isKinematic = false;
          m_Rigibody.AddForce(new Vector3(0, -fallSpeed, 0));
-        yield return null;
+        
 
     }
 
     IEnumerator ResetPlatform()
     {
-        yield return new WaitForSeconds(timeBeforeActivation+3);
+        yield return new WaitForSeconds(timeBeforeActivation+resetTime);
         Debug.LogError("ResetPlatform");
         m_Rigibody.isKinematic = true;
         m_Rigibody.useGravity = false;
         m_Rigibody.MovePosition(originPosition+ m_transform.up*fallSpeed*Time.deltaTime);
         StopAllCoroutines();
         yield return null;
+        falling = false;
     }
 
     public bool IsAboveGround()
@@ -65,7 +70,7 @@ public class FallingPlatforms : MonoBehaviour
        // if (!IsAboveGround())
        // {
            
-            StartCoroutine(ResetPlatform());
+            //StartCoroutine(ResetPlatform());
         //}
     }
 }

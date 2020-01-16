@@ -15,7 +15,7 @@ public class ArmorCollectible : Collectible
         PlayerArmorController armorController = player.GetComponent<PlayerArmorController>();
         if(armorController)
         {
-            //armorController.EquipArmor();
+            armorController.Equip();
         }
         base.CollidedWithPlayer(player);
     }

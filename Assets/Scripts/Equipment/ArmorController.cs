@@ -9,8 +9,6 @@ public class ArmorController : MonoBehaviour
     [SerializeField] Vector3 localRotation;
     [SerializeField] Vector3 localScale;
 
-    public bool displayRot = false;
-
     public void AttachArmor(Transform parent)
     {
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -18,12 +16,11 @@ public class ArmorController : MonoBehaviour
         {
             //Change layer collision
             rb.isKinematic = true;
-
-            transform.parent = parent;
-            transform.localPosition = localPosition;
-            transform.localRotation = Quaternion.Euler(localRotation);
-            transform.localScale = localScale;
         }
+        transform.parent = parent;
+        transform.localPosition = localPosition;
+        transform.localRotation = Quaternion.Euler(localRotation);
+        transform.localScale = localScale;
     }
 
     public void DetachArmor(Vector3 impulse)
@@ -55,7 +52,13 @@ public class ArmorController : MonoBehaviour
 
             yield return new WaitForSeconds(flashingInterval);
         }
+        if(!displayModel)
+        {
+            for (int i = 0; i < renderers.Length; i++)
+                renderers[i].enabled = true;
+        }
+            
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
