@@ -712,10 +712,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 10
-  jumpForce: 20
+  jumpForce: 25
   throwBackForce: 10
   standingCapsule: {fileID: 2525685318887918512}
   crouchedCapsule: {fileID: 2407411840480082572}
+  velocity: 0
 --- !u!114 &778719198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1778,6 +1779,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: -2445193559103534071, guid: 315ba1e09289615458c8e657ca69015d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167904293427101411, guid: 315ba1e09289615458c8e657ca69015d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8742008233500340892, guid: 315ba1e09289615458c8e657ca69015d,
         type: 3}
       propertyPath: m_Layer
@@ -1789,6 +1800,11 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1881797528090517389, guid: 315ba1e09289615458c8e657ca69015d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329505420794184642, guid: 315ba1e09289615458c8e657ca69015d,
         type: 3}
       propertyPath: m_Layer
       value: 9
@@ -1823,17 +1839,7 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: -2445193559103534071, guid: 315ba1e09289615458c8e657ca69015d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 6881932852953648046, guid: 315ba1e09289615458c8e657ca69015d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6167904293427101411, guid: 315ba1e09289615458c8e657ca69015d,
         type: 3}
       propertyPath: m_Layer
       value: 9
@@ -1859,11 +1865,6 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -9217817218132447574, guid: 315ba1e09289615458c8e657ca69015d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329505420794184642, guid: 315ba1e09289615458c8e657ca69015d,
         type: 3}
       propertyPath: m_Layer
       value: 9

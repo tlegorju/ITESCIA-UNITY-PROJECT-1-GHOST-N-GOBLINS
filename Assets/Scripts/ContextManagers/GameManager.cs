@@ -15,8 +15,10 @@ public class GameManager : MonoBehaviour
     public event Action OnGameStarted = delegate { },
                         OnGamePaused = delegate { },
                         OnGameResumed = delegate { },
+                        OnLevelWon = delegate { },
                         OnGameOver = delegate { },
                         OnGameQuitted = delegate { };
+           
 
     private GameState gameState = GameState.GameIdle;
 
@@ -66,6 +68,10 @@ public class GameManager : MonoBehaviour
             else if (gameState == GameState.GamePlaying)
                 PauseGame();
         }
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            LevelWon();
+        }
     }
 
     public void ResumeGame()
@@ -77,10 +83,17 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        Debug.Log("pause");
         Time.timeScale = 0.01f;
         OnGamePaused();
         gameState = GameState.GamePaused;
+    }
+
+    public void LevelWon()
+    {
+        OnLevelWon();
+
+        if (SceneChangingManager.Instance)
+            SceneChangingManager.Instance.GoToNextLevel();
     }
 
     public void GameOver()
@@ -89,7 +102,6 @@ public class GameManager : MonoBehaviour
         OnGameOver();
         gameState = GameState.GameStopped;
 
-        Invoke("TempLoadMainMenu", 1.0f);
     }
 
     public void QuitGame()
@@ -97,12 +109,9 @@ public class GameManager : MonoBehaviour
         OnGameQuitted();
         gameState = GameState.GameStopped;
 
+        if (SceneChangingManager.Instance)
+            SceneChangingManager.Instance.GoToMainMenu();
         //Temporary
         //Application.Quit();
-    }
-
-    private void TempLoadMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
     }
 }

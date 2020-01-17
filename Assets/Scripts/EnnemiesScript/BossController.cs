@@ -29,7 +29,7 @@ public class BossController : EntityController
     // Start is called before the first frame update
     void Start()
     {
-        if (GameManager.Instance)
+        if (GameManager.Instance && GameManager.Instance.PlayerRef != null)
             playerRef = GameManager.Instance.PlayerRef.transform;
         else
             playerRef = GameObject.FindGameObjectWithTag("Player").transform;

@@ -39,10 +39,10 @@ public class PlayerAnimatorControllerScript : MonoBehaviour
             playerMovement.OnCrouch += OnCrouch;
             playerMovement.OnStandUp += OnStandUp;
         }
-        SimplePlayerInput playerInput = GetComponent<SimplePlayerInput>();
-        if(playerInput)
+        SimplePlayerWeaponController playerWeaponController = GetComponent<SimplePlayerWeaponController>();
+        if(playerWeaponController)
         {
-            playerInput.OnThrow += TriggerThrow;
+            playerWeaponController.OnThrow += TriggerThrow;
         }
     }
 

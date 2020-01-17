@@ -8,8 +8,8 @@ public class EndLevelController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Win");
-            //Load next level
+            if (GameManager.Instance)
+                GameManager.Instance.LevelWon();
         }
     }
 }

@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
     private static UIManager instance;
     public static UIManager Instance { get { return instance; } }
 
-    [SerializeField] GameObject pausePanel, gameOverPanel;
+    [SerializeField] GameObject pausePanel, gameOverPanel, levelWonPanel;
 
     private void Awake()
     {
@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
             tmpGM.OnGamePaused += PauseGame;
             tmpGM.OnGameResumed += ResumeGame;
             tmpGM.OnGameOver += ShowGameOver;
+            tmpGM.OnLevelWon += LevelWon;
         }
     }
 
@@ -45,7 +46,11 @@ public class UIManager : MonoBehaviour
     private void ShowGameOver()
     {
         if (gameOverPanel != null)
-            Debug.Log("Game over");
-            //gameOverPanel.SetActive(true);
+            gameOverPanel.SetActive(true);
+    }
+
+    private void LevelWon()
+    {
+        levelWonPanel.SetActive(true);
     }
 }
