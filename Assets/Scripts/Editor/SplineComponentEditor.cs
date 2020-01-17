@@ -20,13 +20,13 @@ public class SplineComponentEditor : Editor
         if (GUILayout.Button("Flatten Y Axis"))
         {
             Undo.RecordObject(target, "Flatten Y Axis");
-            //TODO: Flatten(spline.points);
+            Flatten(spline.points);
             spline.ResetIndex();
         }
         if (GUILayout.Button("Center around Origin"))
         {
             Undo.RecordObject(target, "Center around Origin");
-            //TODO: CenterAroundOrigin(spline.points);
+            CenterAroundOrigin(spline.points);
             spline.ResetIndex();
         }
         GUILayout.EndHorizontal();
