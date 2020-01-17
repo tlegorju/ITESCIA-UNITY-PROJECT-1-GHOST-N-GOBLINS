@@ -74,7 +74,7 @@ public class SimplePlayerMovement : MonoBehaviour
 
         //float velocity = playerInput.Horizontal * walkSpeed * Time.fixedDeltaTime;
         velocity = playerInput.Horizontal * walkSpeed * Time.fixedDeltaTime;
-        rigidbody.MovePosition(rigidbody.position + Vector3.forward * velocity);
+        transform.position = transform.position + Vector3.forward * velocity;
         //rigidbody.velocity = new Vector3(0,0,velocity);
         UpdateVelocity(velocity);
         
