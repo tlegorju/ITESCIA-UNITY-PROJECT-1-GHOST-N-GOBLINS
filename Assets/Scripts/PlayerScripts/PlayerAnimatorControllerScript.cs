@@ -6,10 +6,12 @@ using UnityEngine;
 public class PlayerAnimatorControllerScript : MonoBehaviour
 {
     private Animator animator;
+    private new Rigidbody rigidbody;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     // Start is called before the first frame update
@@ -47,7 +49,8 @@ public class PlayerAnimatorControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        animator.SetFloat("VelocityY", rigidbody.velocity.y);
+        animator.SetFloat("VelocityXZ", Mathf.Abs(GetComponent<SimplePlayerMovement>().velocity));
     }
 
     private void TriggerDeath()

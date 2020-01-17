@@ -33,7 +33,11 @@ public class SimplePlayerMovement : MonoBehaviour
     [SerializeField] CapsuleCollider standingCapsule;
     [SerializeField] CapsuleCollider crouchedCapsule;
 
+    /// TEMP
+    public float velocity=0;
 
+
+    /// TEMP
     private void Awake()
     {
         playerInput = GetComponent<SimplePlayerInput>();
@@ -68,8 +72,10 @@ public class SimplePlayerMovement : MonoBehaviour
     {
         UpdateDirection();
 
-        float velocity = playerInput.Horizontal * walkSpeed * Time.fixedDeltaTime;
+        //float velocity = playerInput.Horizontal * walkSpeed * Time.fixedDeltaTime;
+        velocity = playerInput.Horizontal * walkSpeed * Time.fixedDeltaTime;
         rigidbody.MovePosition(rigidbody.position + Vector3.forward * velocity);
+        //rigidbody.velocity = new Vector3(0,0,velocity);
         UpdateVelocity(velocity);
         
         if (!IsGrounded())
