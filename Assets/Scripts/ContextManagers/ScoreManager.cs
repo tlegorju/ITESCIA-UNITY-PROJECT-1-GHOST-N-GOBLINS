@@ -26,6 +26,12 @@ public class ScoreManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        if (GameManager.Instance != null)
+            GameManager.Instance.OnGameOver += UpdateScoreOnGameOver;
+    }
+
     public void AddScore(int score)
     {
         currentScore += score;
@@ -36,5 +42,18 @@ public class ScoreManager : MonoBehaviour
     {
         currentScore = 0;
         OnScoreChanged();
+    }
+
+    private void UpdateScoreOnGameOver()
+    {
+        if(BestScoreRegisterer.Instance!=null)
+        {
+            if(BestScoreRegisterer.Instance.CheckBestScoreBeaten(currentScore))
+            {
+                Debug.Log("Registered score " + currentScore);
+                BestScoreRegisterer.Instance.UpdateBestScore(currentScore);
+                currentScore = 0;
+            }
+        }
     }
 }

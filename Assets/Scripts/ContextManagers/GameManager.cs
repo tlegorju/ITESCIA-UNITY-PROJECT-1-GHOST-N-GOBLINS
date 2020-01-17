@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public enum GameState { GameIdle, GamePlaying, GamePaused, GameStopped};
@@ -84,9 +85,11 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Time.timeScale = 0.01f;
+        //Time.timeScale = 0.01f;
         OnGameOver();
         gameState = GameState.GameStopped;
+
+        Invoke("TempLoadMainMenu", 1.0f);
     }
 
     public void QuitGame()
@@ -96,5 +99,10 @@ public class GameManager : MonoBehaviour
 
         //Temporary
         //Application.Quit();
+    }
+
+    private void TempLoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
