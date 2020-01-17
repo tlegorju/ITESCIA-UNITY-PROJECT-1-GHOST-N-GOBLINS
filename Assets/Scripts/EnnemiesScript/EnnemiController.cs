@@ -65,7 +65,6 @@ public class EnnemiController : EntityController
         animator.SetTrigger("Dies");
         GetComponent<Collider>().enabled = false;
         rigidbody.isKinematic = true;
-
         ScoreManager tmpScoreManager = ScoreManager.Instance;
         if (tmpScoreManager)
             tmpScoreManager.AddScore(nbPointsOnDeath);
