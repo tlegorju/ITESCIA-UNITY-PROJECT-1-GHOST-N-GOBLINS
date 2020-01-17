@@ -71,6 +71,9 @@ public class BossController : EntityController
             tmpScoreManager.AddScore(nbPointsOnDeath);
 
         Destroy(gameObject, 1.5f);
+
+        if (GameManager.Instance)
+            GameManager.Instance.LevelWon();
     }
 
     private void CheckGoToStage2()

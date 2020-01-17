@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     private GameState gameState = GameState.GameIdle;
 
     private GameObject playerRef;
-    public GameObject PlayerRef { get { return playerRef; } }
+    public GameObject PlayerRef { get { return playerRef; } set { playerRef = value; } }
 
     private void Awake()
     {
@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
         }
         instance = this;
 
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Start is called before the first frame update
@@ -109,8 +110,11 @@ public class GameManager : MonoBehaviour
         OnGameQuitted();
         gameState = GameState.GameStopped;
 
+        Destroy(playerRef);
         if (SceneChangingManager.Instance)
             SceneChangingManager.Instance.GoToMainMenu();
+
+        Destroy(gameObject);
         //Temporary
         //Application.Quit();
     }

@@ -5,12 +5,21 @@ using UnityEngine;
 
 public class SimplePlayerController : EntityController
 {
+    private static SimplePlayerController instance;
+
     private bool canTakeDamages = true;
     [SerializeField] float invulnerabilityDuration = 2.0f;
 
     private void Awake()
     {
+        if(instance!=null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
 
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)

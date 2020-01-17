@@ -51,6 +51,7 @@ public class UIManager : MonoBehaviour
 
     private void LevelWon()
     {
-        levelWonPanel.SetActive(true);
+        if(levelWonPanel)
+            levelWonPanel.SetActive(true);
     }
 }
