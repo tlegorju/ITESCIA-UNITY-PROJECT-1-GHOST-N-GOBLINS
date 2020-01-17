@@ -21,7 +21,7 @@ public class PlayerAnimatorControllerScript : MonoBehaviour
         if(entityController)
         {
             entityController.OnHurted += TriggerHurted;
-            entityController.OnDies += TriggerDeath;
+            entityController.OnDies += OnDies;
         }
         PlayerArmorController armorController = GetComponent<PlayerArmorController>();
         if(armorController)
@@ -53,11 +53,6 @@ public class PlayerAnimatorControllerScript : MonoBehaviour
         animator.SetFloat("VelocityXZ", Mathf.Abs(GetComponent<SimplePlayerMovement>().velocity));
     }
 
-    private void TriggerDeath()
-    {
-        animator.SetTrigger("Dies");
-    }
-
     private void TriggerHurted()
     {
         animator.SetTrigger("Hurted");
@@ -72,6 +67,11 @@ public class PlayerAnimatorControllerScript : MonoBehaviour
     {
         animator.SetTrigger("Jump");
         animator.SetBool("Grounded", false);
+    }
+
+    private void OnDies()
+    {
+        animator.SetBool("Dead", true);
     }
 
     private void OnLand()
