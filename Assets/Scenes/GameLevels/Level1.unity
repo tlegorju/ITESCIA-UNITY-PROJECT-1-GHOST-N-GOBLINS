@@ -4537,6 +4537,11 @@ PrefabInstance:
       propertyPath: points.Array.data[3].z
       value: 47.52211
       objectReference: {fileID: 0}
+    - target: {fileID: 7932355611518299408, guid: c81303299f1bce2479e8e300482e6fa7,
+        type: 3}
+      propertyPath: secondsToWait
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c81303299f1bce2479e8e300482e6fa7, type: 3}
 --- !u!4 &483083134 stripped

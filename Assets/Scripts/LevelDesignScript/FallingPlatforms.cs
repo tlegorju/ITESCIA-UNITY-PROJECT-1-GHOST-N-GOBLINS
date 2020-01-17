@@ -60,7 +60,7 @@ public class FallingPlatforms : MonoBehaviour
     IEnumerator ResetPlatform()
     {
         yield return new WaitForSeconds(timeBeforeActivation+resetTime);
-        Debug.LogError("ResetPlatform");
+
         m_Rigibody.isKinematic = true;
         m_Rigibody.useGravity = false;
         m_Rigibody.MovePosition(originPosition+ m_transform.up*fallSpeed*Time.deltaTime);

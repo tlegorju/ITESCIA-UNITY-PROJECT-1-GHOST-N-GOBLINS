@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9058269318246039837}
   - component: {fileID: 9058269318246039836}
   - component: {fileID: 9058269318246039843}
+  - component: {fileID: -5070770312838352687}
   m_Layer: 11
   m_Name: Pieux
   m_TagString: Weapon
@@ -64,6 +65,22 @@ MonoBehaviour:
   translationSpeed: 300
   throwSpeed: 30
   rotateSpeed: 5
+--- !u!54 &-5070770312838352687
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9058269318246039842}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &9058269317928468353
 PrefabInstance:
   m_ObjectHideFlags: 0
