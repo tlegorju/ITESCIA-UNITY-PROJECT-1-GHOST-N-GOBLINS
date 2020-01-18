@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SimplePlayerMovement : MonoBehaviour
 {
+    private AudioSource source;
     [SerializeField] private float walkSpeed = 30f;
     [SerializeField] private float jumpForce = 30f;
     [SerializeField] private float throwBackForce = 30f;
@@ -30,6 +31,8 @@ public class SimplePlayerMovement : MonoBehaviour
     public event Action OnStandUp = delegate { };
     private bool isStanding = true;
 
+    public AudioClip JumpSound;
+
     [SerializeField] CapsuleCollider standingCapsule;
     [SerializeField] CapsuleCollider crouchedCapsule;
 
@@ -40,6 +43,7 @@ public class SimplePlayerMovement : MonoBehaviour
     /// TEMP
     private void Awake()
     {
+        source = GetComponent<AudioSource>();
         playerInput = GetComponent<SimplePlayerInput>();
         rigidbody = GetComponent<Rigidbody>();
 
@@ -95,7 +99,9 @@ public class SimplePlayerMovement : MonoBehaviour
         if (IsGrounded())
         {
             rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            OnJump();
+            source.clip = JumpSound;
+            source.Play();
+            OnJump(); 
             wasGrounded = false;
         }
     }

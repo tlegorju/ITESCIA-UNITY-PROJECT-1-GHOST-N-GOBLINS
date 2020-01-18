@@ -7,6 +7,7 @@ public enum BodyPart { Head, Chest, LegLeft, RightLeg, ShoulderLeft, ShoulderRig
 
 public class PlayerArmorController : MonoBehaviour
 {
+    private AudioSource source;
     public Transform[] slotArray = new Transform[(int)BodyPart.LAST];
     public ArmorController[] armorRef = new ArmorController[(int)BodyPart.LAST];
 
@@ -16,10 +17,13 @@ public class PlayerArmorController : MonoBehaviour
     public event Action OnEquip = delegate { };
     public event Action OnUnequip = delegate { };
 
+    public AudioClip armorEquipSound;
+
     private void Awake()
     {
         SimplePlayerController controller = GetComponent<SimplePlayerController>();
-        if(controller)
+        source = GetComponent<AudioSource>();
+        if (controller)
             controller.OnHurted += Unequip;
     }
     // Start is called before the first frame update
@@ -69,6 +73,8 @@ public class PlayerArmorController : MonoBehaviour
                 armorRef[i].AttachArmor(slotArray[i]);
             }
         }
+        source.clip = armorEquipSound;
+        source.Play();
         armorEquipped = true;
         OnEquip();
     }
