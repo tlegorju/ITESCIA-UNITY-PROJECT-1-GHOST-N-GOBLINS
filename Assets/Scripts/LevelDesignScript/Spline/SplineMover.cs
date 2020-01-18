@@ -7,7 +7,7 @@ public class SplineMover : MonoBehaviour
 {
     public GameObject m_objectToMove; // the object we want to move along the spline
     public SplineComponent m_spline; // the spline which is going to set the path for the object
-    public float secondsToWait;
+    public float secondsToWait = 1f;
 
     Coroutine MoveCoroutine; // a coroutine we gonna use to return the movement of the platform
     private Transform oTransform; // the transform of the moving object
