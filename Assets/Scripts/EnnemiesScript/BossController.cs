@@ -72,6 +72,8 @@ public class BossController : EntityController
 
         Destroy(gameObject, 1.5f);
 
+        Destroy(playerRef.gameObject);
+
         if (GameManager.Instance)
             GameManager.Instance.LevelWon();
     }

@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
+        Time.timeScale = 1.0f;
         OnGameQuitted();
         gameState = GameState.GameStopped;
 

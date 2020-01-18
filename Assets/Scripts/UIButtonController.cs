@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class UIButtonController : MonoBehaviour
 {
-
+    public void GoToNextLevel()
+    {
+        if (SceneChangingManager.Instance)
+            SceneChangingManager.Instance.GoToNextLevel();
+    }
 
     public void ResumeGame()
     {
