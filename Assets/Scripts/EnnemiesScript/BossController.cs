@@ -70,12 +70,17 @@ public class BossController : EntityController
         if (tmpScoreManager)
             tmpScoreManager.AddScore(nbPointsOnDeath);
 
-        Destroy(gameObject, 1.5f);
+        Invoke("EndGame", 5.0f);
+    }
+
+    private void EndGame()
+    {
 
         Destroy(playerRef.gameObject);
 
         if (GameManager.Instance)
             GameManager.Instance.LevelWon();
+
     }
 
     private void CheckGoToStage2()

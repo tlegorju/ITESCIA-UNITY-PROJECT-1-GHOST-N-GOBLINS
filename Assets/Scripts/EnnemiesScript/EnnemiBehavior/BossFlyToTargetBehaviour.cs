@@ -14,9 +14,13 @@ public class BossFlyToTargetBehaviour : StateMachineBehaviour
     [SerializeField] float timeBetweenThrow = 1.5f;
     float nextTimeThrow;
 
+    [SerializeField] float delayBeforeNext = 4.0f;
+    float startTime;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        startTime = Time.time;
         rigidbody = animator.GetComponent<Rigidbody>();
         weaponController = animator.GetComponent<BossWeaponController>();
         if (!weaponController)
@@ -26,6 +30,7 @@ public class BossFlyToTargetBehaviour : StateMachineBehaviour
         }
 
         targetPosition = animator.GetComponent<BossController>().GetCurrentTargetPosition(animator.GetInteger("CurrentTargetIndex"));
+    
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -37,6 +42,9 @@ public class BossFlyToTargetBehaviour : StateMachineBehaviour
 
         if (Time.time >= nextTimeThrow)
             Throw();
+
+        if(Time.time >= startTime+delayBeforeNext)
+            animator.SetBool("FlyToTarget", false);
 
     }
 

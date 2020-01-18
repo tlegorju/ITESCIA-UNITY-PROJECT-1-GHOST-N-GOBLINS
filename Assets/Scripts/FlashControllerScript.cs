@@ -6,7 +6,7 @@ public class FlashControllerScript : MonoBehaviour
 {
     [SerializeField] Material flashMaterial;
     private Material[] originalMaterialsArray;
-    private new Renderer renderer;
+    [SerializeField] private new Renderer renderer;
 
     [SerializeField] float timeFlashing=1.0f, intervalFlash=0.2f;
     private float flashingCounter;
@@ -25,7 +25,8 @@ public class FlashControllerScript : MonoBehaviour
         controller.OnHurted += StartFlashing;
         controller.OnDies += StartFlashing;
 
-        renderer = GetComponentInChildren<Renderer>();
+        if(renderer!=null)
+            renderer = GetComponentInChildren<Renderer>();
         GetOriginalMaterials();
     }
 
