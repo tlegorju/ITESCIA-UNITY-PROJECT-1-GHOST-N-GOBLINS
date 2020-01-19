@@ -6,7 +6,7 @@ public class FlashControllerScript : MonoBehaviour
 {
     [SerializeField] Material flashMaterial;
     private Material[] originalMaterialsArray;
-    [SerializeField] private new Renderer renderer;
+    private new Renderer renderer;
 
     [SerializeField] float timeFlashing=1.0f, intervalFlash=0.2f;
     private float flashingCounter;

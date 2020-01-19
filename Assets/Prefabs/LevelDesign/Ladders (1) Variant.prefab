@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 748273003620382743, guid: 47d26303ed71a4d4d85aa91435eeb962,
         type: 3}
       propertyPath: m_Name
-      value: Ladders (1)
+      value: Ladders (1) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 748273003620382736, guid: 47d26303ed71a4d4d85aa91435eeb962,
         type: 3}
@@ -70,12 +70,12 @@ PrefabInstance:
     - target: {fileID: 7604120340017121089, guid: 47d26303ed71a4d4d85aa91435eeb962,
         type: 3}
       propertyPath: m_Size.y
-      value: 43.160934
+      value: 38.391083
       objectReference: {fileID: 0}
     - target: {fileID: 7604120340017121089, guid: 47d26303ed71a4d4d85aa91435eeb962,
         type: 3}
       propertyPath: m_Center.y
-      value: 22.869576
+      value: 25.254501
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47d26303ed71a4d4d85aa91435eeb962, type: 3}

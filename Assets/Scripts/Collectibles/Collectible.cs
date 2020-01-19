@@ -5,8 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Collectible : MonoBehaviour
 {
+    private AudioSource source;
     [SerializeField] int nbPointsOnCollected;
+    public AudioClip pickedupSound;
 
+    private void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -15,21 +21,32 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        source.clip = pickedupSound;
+        
         if (other.gameObject.CompareTag("Player"))
+        {
+            source.Play();
             CollidedWithPlayer(other.gameObject);
+        }
     }
 
     protected virtual void CollidedWithPlayer(GameObject player)
     {
+       
         if (ScoreManager.Instance)
         {
             ScoreManager.Instance.AddScore(nbPointsOnCollected);
         }
-        DestroyObject();
+        StartCoroutine(DestroyObjects());
     }
 
     protected virtual void DestroyObject()
     {
-        Destroy(gameObject);
+       Destroy(gameObject);
+    }
+    IEnumerator DestroyObjects()
+    {
+        yield return new WaitForSeconds(0.1f);
+        DestroyObject();
     }
 }

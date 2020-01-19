@@ -3,7 +3,22 @@ guid: daf681914a2ce9345a6cddc12469ef27
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_EYES
+    second: {fileID: 2100000, guid: b21113aa67577b04d9d4b26a219386ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn2
+    second: {fileID: 2100000, guid: 8c0e254a25c20af44820603b241d5867, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__blinn2
+    second: {fileID: 2100000, guid: 0e907ae0064f2d147a5cc165edb506cf, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

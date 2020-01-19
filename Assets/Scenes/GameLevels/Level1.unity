@@ -5148,10 +5148,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 778719197, guid: 47eafc7c3e0e76549bf17bff715e4c10, type: 3}
-      propertyPath: jumpForce
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 109408935214848229, guid: 47eafc7c3e0e76549bf17bff715e4c10,
         type: 3}
       propertyPath: m_Avatar
@@ -5167,6 +5163,10 @@ PrefabInstance:
         'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform 'mixamorig:RightHandRing1'\n\tTransform
         'mixamorig:RightHandIndex3'\n\tTransform 'mixamorig:RightFoot'\n\tand more
         ...\n\tFrom animation clip 'CharacterHurted'"
+      objectReference: {fileID: 0}
+    - target: {fileID: 778719197, guid: 47eafc7c3e0e76549bf17bff715e4c10, type: 3}
+      propertyPath: jumpForce
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47eafc7c3e0e76549bf17bff715e4c10, type: 3}
@@ -16756,6 +16756,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7604120340017121089, guid: 47d26303ed71a4d4d85aa91435eeb962,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.506386
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604120340017121089, guid: 47d26303ed71a4d4d85aa91435eeb962,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 16.023521
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47d26303ed71a4d4d85aa91435eeb962, type: 3}
 --- !u!1001 &2080452971
@@ -17639,6 +17649,11 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: ed63529c0302eea48a83f07269e0395a, type: 3}
+    - target: {fileID: 6788689247836599168, guid: d605bf6fdffe2cf4386de8b9dc2dafa0,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.36
+      objectReference: {fileID: 0}
     - target: {fileID: 1535989513795138230, guid: d605bf6fdffe2cf4386de8b9dc2dafa0,
         type: 3}
       propertyPath: m_LookAt

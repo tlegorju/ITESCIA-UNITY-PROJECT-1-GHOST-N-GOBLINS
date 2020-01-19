@@ -129,7 +129,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.678
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -225,11 +225,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f08c06a3a755cb459b214ef39f015aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnClips: []
-  runClips: []
-  attackClips: []
-  hurtedClip: []
-  diesClips: []
+  spawnClips:
+  - {fileID: 8300000, guid: 2e057efa506f7c44b9a354821f12e34e, type: 3}
+  - {fileID: 8300000, guid: a65c67489280a034d9cbae8bf5941a87, type: 3}
+  runClips:
+  - {fileID: 8300000, guid: 463b1eb26bf86ad47a4d0c0ffd8bb7f5, type: 3}
+  - {fileID: 8300000, guid: fc3d12cd58ff62d4e9d565462ed43d66, type: 3}
+  - {fileID: 8300000, guid: 2a3faebc04046864db4bb28015392d1c, type: 3}
+  attackClips:
+  - {fileID: 8300000, guid: 14f5882a3969e924e90ea352f3a7d8c1, type: 3}
+  - {fileID: 8300000, guid: 67bbf8cd43244904aa2dbcc90ec836a9, type: 3}
+  - {fileID: 8300000, guid: c14eb78811b8bb347879b36572a1a3ab, type: 3}
+  - {fileID: 8300000, guid: 296649778bc3ba04d836d2a5f64375e8, type: 3}
+  hurtedClip:
+  - {fileID: 8300000, guid: 56bd79f9def1b5f4f9764802471bf705, type: 3}
+  - {fileID: 8300000, guid: dad67fb1e5733144484b75388522d18b, type: 3}
+  - {fileID: 8300000, guid: 175772780900fa74485ba19c8286d52e, type: 3}
+  - {fileID: 8300000, guid: c7d394de3347ff14a9d0c97d2927084f, type: 3}
+  diesClips:
+  - {fileID: 8300000, guid: 4a2d8fc74c5dbd3429bef522d7729af6, type: 3}
+  - {fileID: 8300000, guid: 9249d7f930cc5564d8d62a25bc7b3fee, type: 3}
 --- !u!1001 &5599657290823817330
 PrefabInstance:
   m_ObjectHideFlags: 0

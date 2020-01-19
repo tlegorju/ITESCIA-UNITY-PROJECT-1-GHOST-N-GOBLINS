@@ -277,6 +277,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PausePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 1927197563123858384, guid: 26ea284cb7fbd604d8765c3108359ee2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4255808280822825227, guid: 26ea284cb7fbd604d8765c3108359ee2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -412,6 +417,36 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6785409170516761053}
+    - target: {fileID: 2673174737543012279, guid: 26ea284cb7fbd604d8765c3108359ee2,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.8113208
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673174737543012279, guid: 26ea284cb7fbd604d8765c3108359ee2,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.095674604
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673174737543012279, guid: 26ea284cb7fbd604d8765c3108359ee2,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.095674604
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673174737543012279, guid: 26ea284cb7fbd604d8765c3108359ee2,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.2830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673174737543012279, guid: 26ea284cb7fbd604d8765c3108359ee2,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.16420436
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673174737543012279, guid: 26ea284cb7fbd604d8765c3108359ee2,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.16420436
+      objectReference: {fileID: 0}
     - target: {fileID: 731902113043949581, guid: 26ea284cb7fbd604d8765c3108359ee2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
