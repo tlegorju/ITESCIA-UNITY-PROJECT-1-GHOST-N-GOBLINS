@@ -115,10 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 2100000, guid: 2674c032218fcfa4a84ad4f3ea446eb2, type: 2}
-<<<<<<< HEAD
-=======
   renderer: {fileID: 1349611854661014810}
->>>>>>> fixed flashing ennemies
   timeFlashing: 1
   intervalFlash: 0.2
 --- !u!82 &-7559516151900873154
