@@ -99,7 +99,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.749
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -253,7 +253,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 2100000, guid: 2674c032218fcfa4a84ad4f3ea446eb2, type: 2}
-  renderer: {fileID: 6491057413724159302}
   timeFlashing: 1
   intervalFlash: 0.2
 --- !u!1001 &383368193112192808
@@ -338,12 +337,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: -2416733968201007103, guid: cc27c87bab7d7b344a7d6db02df8f503,
+    - target: {fileID: 6864929510359501422, guid: cc27c87bab7d7b344a7d6db02df8f503,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6864929510359501422, guid: cc27c87bab7d7b344a7d6db02df8f503,
+    - target: {fileID: -2416733968201007103, guid: cc27c87bab7d7b344a7d6db02df8f503,
         type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -353,12 +352,6 @@ PrefabInstance:
 --- !u!4 &4623872565767248946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: cc27c87bab7d7b344a7d6db02df8f503,
-    type: 3}
-  m_PrefabInstance: {fileID: 383368193112192808}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &6491057413724159302 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6864929510359501422, guid: cc27c87bab7d7b344a7d6db02df8f503,
     type: 3}
   m_PrefabInstance: {fileID: 383368193112192808}
   m_PrefabAsset: {fileID: 0}
