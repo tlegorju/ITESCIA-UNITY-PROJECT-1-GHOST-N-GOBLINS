@@ -115,6 +115,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 2100000, guid: 2674c032218fcfa4a84ad4f3ea446eb2, type: 2}
+<<<<<<< HEAD
+=======
+  renderer: {fileID: 1349611854661014810}
+>>>>>>> fixed flashing ennemies
   timeFlashing: 1
   intervalFlash: 0.2
 --- !u!82 &-7559516151900873154
@@ -252,11 +256,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8272043283825217229}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: d7545db993ca54543ba3e739cf223642,
-        type: 3}
-      propertyPath: m_Name
-      value: Ghost1
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d7545db993ca54543ba3e739cf223642,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -327,6 +326,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d7545db993ca54543ba3e739cf223642,
+        type: 3}
+      propertyPath: m_Name
+      value: Ghost1
+      objectReference: {fileID: 0}
     - target: {fileID: -7078581854405578231, guid: d7545db993ca54543ba3e739cf223642,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -343,6 +347,12 @@ PrefabInstance:
 --- !u!4 &5333299162849037321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: d7545db993ca54543ba3e739cf223642,
+    type: 3}
+  m_PrefabInstance: {fileID: 1114952732652398355}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1349611854661014810 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7078581854405578231, guid: d7545db993ca54543ba3e739cf223642,
     type: 3}
   m_PrefabInstance: {fileID: 1114952732652398355}
   m_PrefabAsset: {fileID: 0}
