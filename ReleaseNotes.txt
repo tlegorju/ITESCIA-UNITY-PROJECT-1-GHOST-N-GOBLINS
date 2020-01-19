@@ -1,0 +1,190 @@
+RELEASE NOTES
+PROJET "Ghost'n'Goblins" Unity 3D
+19 janvier 2020
+
+Equipe de production:
+	- Thibault Le Gorju
+	- Sulliman Abdul
+	
+	
+Le jeu:
+Ghost'n'Goblins est un jeu d'action-plateforme en 2D vue de côté paru en 1985.
+Il a connu un grand succès à sa sortie, notamment grâce à sa grande difficulté, ainsi que plusieurs suites.
+
+
+Les mécaniques:
+On peut diviser le jeu en deux parties distinctes : le platforming et le combat.
+
+1 - Le platforming
+	Le personnage à la capacité de:
+		- se déplacer de gauche à droite
+		- sauter
+		- monter aux échelles
+		- se baisser
+		- ne pas prendre de dégats de chute, bien qu'il meurt s'il tombe hors du niveau
+	Nous avons retenu les éléments de platforming suivants:
+		- plateformes fixes
+		- plateformes mouvantes qui suivent un chemin prédéfini
+		- plateformes tombantes qui se dérobent après qu'on leur ai marché dessus
+		- échelles
+
+2 - Le combat
+	Le personnage à la capacité de:
+		- lancer son arme à une certaine fréquence
+		- ramasser une arme pour en changer et augmenter ses dégats
+		- tuer ses ennemis en faisant tomber leurs points de vie à 0
+		- prendre un coup qui lui fait perdre son armure
+		- mourir s'il prend un coup lorsqu'il ne porte pas d'armure
+	Le joueur est amené à affronter les ennemis suivants:
+		- Zombie1 : un zombie qui marche toujours dans la même direction
+		- Zombie2 : un zombie qui marche dans la direction du joueur et a plus de vie que le Zombie1
+		- Ghost1 : un fantôme qui vole toujours dans la même direction
+		- Ghost2 : un fantôme qui suit le joueur par changement de direction successive et qui a plus de vie que le Ghost1
+	
+	- Satan : le boss final qui suit un pattern défini tout en tirant des boules de feu dans la direction du joueur (vers la gauche ou la droite uniquement)
+			- Rejoindre une suite de positions définie avec une pause entre chaque déplacement
+			- Rejoindre la dernière position enregistré du joueur
+			- tirer plusieurs boules de feu en arc de cercle
+			-> ce pattern s'accélère lorsque le boss tombe à 50% de sa vie
+3 - Mécaniques additionnelles
+	- Le jeu possède un système de score qui enregistre le meilleur à chaque fin de partie (victoire ou défaite)
+	- Il est possible de récolter des points des façons suivantes :
+		- récolter une pièce en argent ou en or
+		- ramasser une nouvelle arme
+		- ramasser une armure
+		- tuer un ennemis (les ennemis ont une valeur différente selon leur force)
+		- vaincre le boss (celui-ci rapporte beaucoup plus de points que le reste)
+	- La défaite arrive lorsque le joueur meurt, qu'il tombe hors de la map ou qu'il met trop de temps à finir un niveau
+	- En cas de défaite, le joueur doit recommencer les trois niveaux depuis le début
+	
+	
+Les controlles:
+Le jeu est jouable au clavier/souris ou à la manette.
+Les menus sont parcourable avec la manette.
+
+1 - Controlles clavier/souris
+	Aller à gauche 	-	Q/Flèche gauche
+	Aller à droite 	-	D/Flèche droite
+	Sauter 			- 	Espace
+	S'accroupir		-	Maj gauche
+	Monter échelle	- 	Z/Flèche haut
+	Descendre échelle -	S/Flèche bas
+	Attaquer		-	Clique gauche
+	Pause			- 	Echape
+	Passer niveau 	-	N
+	
+2 - Controlles manette
+	Aller à gauche 	-	Stick gauche gauche
+	Aller à droite 	-	Stick gauche droite
+	Sauter 			- 	A
+	S'accroupir		-	B
+	Monter échelle	- 	Stick gauche haut
+	Descendre échelle -	Stick gauche bas
+	Attaquer		-	X
+	Pause			- 	Start
+	Passer niveau 	-	Non assigné
+	
+	
+Les règles du jeu:
+1. Victoire
+	- le joueur passe au niveau suivant lorsqu'il atteint la porte de fin de niveau
+	- le joueur gagne lorsqu'il a vaincu le boss final en réduisant ses points de vie à 0
+	- le score du joueur peut alors être enregistré s'il en a déjà battu un.
+	
+2. Défaite
+	- le joueur perd si son personnage meur, c'est-à-dire s'il se prend un coup lorsqu'il ne porte pas d'armure
+	- le joueur perd s'il tombe hors de la map
+	- le joueur perd s'il met trop de temps à finir un niveau
+	- lorsque le joueur perd, il revient au menu principal et doit recommencer depuis le début
+	
+3. Comment jouer
+	- au lancement du jeu, le joueur est confronté au menu principal. Il doit sélectionner "jouer" pour lancer la partie
+	- le joueur enchaîne ensuite les niveau 1, 2 et 3 sans mourir
+	- le joueur peut quitter le jeu à tout instant mais perd sa progression dans les niveaux
+	
+
+Remarques particulières:
+1. Limitations
+	- le design du jeu souffre de l'absence d'artiste et de game designer dans l'équipe
+	- l'habillage graphique et sonore du jeu à demander certains partis prit afin de rendre un jeu agréable malgré des compétences de débutants
+	- le passage de la 2D à la 3D a posé des problèmes non anticipé à la base, notamment sur la physique et le platforming
+	- le jeu original repose beaucoup sur son contenu : diversité des ennemis, des environnements, des équipements
+	-> la partie développement n'a donc pas représenté la défi majeure de se projet
+
+2. Bugs connus
+	- Le clignotement ne fontionne pas sur le boss
+	- la physique peut avoir des comportements étranges
+
+3. voies d'amélioration
+	- améliorer le platforming en modernisant les mécaniques
+		-> 	Dead cells est un exemple en la matière à travers toutes les mécaniques cachées assistant la plateforme
+			(escalader les rebords, saut après une chute, etc)
+	- améliorer le combat en diversifiant les situations et les manières de s'en sortir
+	- améliorer l'IA des ennemis 
+	- améliorer l'aspect graphique du jeu
+		- qualité des textures
+		- détails des modèles
+		- réalisme des animations
+		- travail sur la lumière
+	- améliorer l'aspect sonore du jeu
+		- homogénéiser et égaliser les sons
+		- travailler sur la synergie entre musique et gameplay
+
+
+Répartition de la production:
+1. Gestion de projet
+	- Sulliman Abdul a géré la partie platforming du projet
+	- Thibault Le Gorju a géré la partie combat du projet
+	- Le reste (Menu, scores, etc) était géré en collaboration de manière égale.
+
+2. Développement
+	Sulliman Abdul a développé:
+		- les déplacements du personnages
+		- le saut
+		- la capacité à s'accroupir
+		- la capacité à monter aux échelles
+		- la plateforme tombante
+		- la plateforme mouvante
+		- les collisions
+		- la porte de fin de niveau
+		- les variantes de comportement des armes
+		- les menus
+		
+	Thibault Le Gorju a développé:
+		- l'attaque du personnage
+		- le comportement de la lance
+		- la gestion de l'armure
+		- l'IA des ennemis
+		- l'IA du boss final
+		- les feedbacks du joueur et des ennemis
+		- les collectibles
+		- les fonctionnalités du HUD (score et timer)
+		- l'intégration des animations des personnages
+		- les conditons de victoire et de défaite
+		
+3. Modélisation
+	Sulliman Abdul a modélisé:
+		- le personnage principal
+		- le boss final
+		- les modèles d'armes
+		- les plateformes
+		- les décors (arbre, torch, tableau, etc)
+		
+	Thibault Le Gorju a modélisé:
+		- les zombies
+		- les fantômes
+		- les briques de level design
+		- l'armure du personnage
+		
+4. Travail additionnel
+	Sulliman Abdul a aussi réalisé:
+		- l'apparence des boutons
+		- le travail sur la police d'écriture
+		- le décor des niveaux 1, 2 et 3
+		- l'intégration des bruitages
+		
+	Thibault Le Gorju a aussi réalisé:
+		- les animations des personnages
+		- le level design des niveaux 1, 2 et 3
+		- l'intégration des bruitages
+		- l'intégration de la musique
